@@ -1,0 +1,81 @@
+
+# Pointwise convergence
+Let $(f_n)$ be a sequence of functions on the same domain $E$, and suppose that for all $x \in E$, the sequence $(f_n(x))$ converges. Then we can define a function $f$ given by $f(x) = \lim_{n \to \infty}f_n(x)$, and say that $(f_n)$ converges pointwise to $f$. 
+
+Pointwise convergence fails to preserve many properties of the functions in the sequence. For instance, the pointwise limit of a sequence of continuous functions is not necessarily continuous. This fact can be phrased in terms of interchanges of limit operations: if $f_n$ is continuous for any $n$, then $\lim_{y \to x}f_n(y) = f(x)$; if the limit is continuous then we have that $\lim_{y \to x}\lim_{n \to \infty}f_n(y)$ (i.e. the limit, as $y$ goes to $x$, $f(y)$) is equal to $\lim_{n \to \infty} \lim_{y \to x} f_n(y)$ (i.e. the limit, as $n$ goes to infinity, of $f_n(x)$). The same can be said of differentiability and other such properties. This motivates the stronger notion of uniform convergence.
+# Uniform Convergence
+Let $(f_n)$ and $E$ be as above. Suppose now that, for every $\epsilon > 0$, there exists $N$ such that, for all $n > N$, $|f_n(x) - f(x)| < \epsilon$ for all $x$ in $E$ (so this is a "global" notion which is applied over the whole domain, not just at each point). That is, all the functions in the sequence beyond some index $N$ fit within a "tube" of radius $\epsilon$ drawn around the graph of $f$. In this case, we say that $(f_n)$ converges uniformly to $f$. 
+
+A consequence of this definition is that the "maximum difference" between $f_n$ and $f$ goes to $0$ as $n$ goes to infinity: more formally: $\lim_{n \to \infty} (\sup_{x \in E} |f_n(x) - f(x)|) = 0$. The converse is also true. Thus if a sequence converges pointwise but not uniformly, that supremum must not go to $0$: roughly speaking, there must be some positive lower bound on the "maximum difference".
+
+Another equivalent condition for uniform convergence is what we might call the "uniform Cauchy" property: $f_n$ converges uniformly to $f$ on $E$ if and only if, for all $\epsilon > 0, x \in E$, there exists $N$ such that, for all $n, m > N$, we have $|f_n(x) - f_m(x)| < \epsilon$. For one direction, suppose the "uniform Cauchy" property holds; then for any $x \in E$, the sequence $(f_n(x))$ is Cauchy and so converges to some limit $f_a$. This implies that $f_n$ converges pointwise, at least, to some limit $f$. Now we can go back to the uniform Cauchy condition and take the limit as, say $m$ goes to infinity. Then we get that, for all $n \geq N$, $|f_n(x) - f(x)| < \epsilon$, as desired.
+
+For the other direction, take $\epsilon/2$; then, given that $f_n$ converges uniformly to a limit $f$, there exists some $N$ with $|f_n(x) - f(x)| < \epsilon/2$ for all $n > N$. Thus for any $n, m > N$ we have $|f_n(x) - f_m(x)| \leq |f_n(x) - f(x)| + |f_m(x) - f(x)| \leq \epsilon$, so $(f_n)$ converges uniformly. 
+## Continuity
+### Uniform Limit of Continuous Functions is Continuous
+We will establish eventually that uniform convergence preserves continuity: if a sequence of continuous functions converges uniformly, then its limit is continuous as well. First we need the following lemma:
+
+Let $(f_n)$ converge to $f$ uniformly on a domain $E$, let $x$ be a limit point of $E$, and let $A_n$ be the limit, as $t$ approaches $x$, of $f_n(t)$. Then $\lim_{t \to x} f(t) = \lim_{n \to \infty} A_n$. (As is the case with so many facts about uniform convergence, this can be phrased in terms of interchanging limits: it says that $\lim_{t \to x} \lim_{n \to \infty} f_n(t) = \lim_{n \to \infty} \lim_{t \to x} f_n(t)$. )
+
+A corollary of this is that, if $(f_n)$ is a sequence of continuous functions with limit $f$, we have that $f$ is continuous, i.e. $\lim_{t \to x}  f(t) = f(x)$ for any $x$, since $\lim_{n \to \infty} \lim_{t \to x} f_n(t) = \lim_{n \to \infty} f_n(x) = f(x)$ (with the first equality being because $f_n$ is continuous for any $x$). This is exactly the result about continuity we wanted to prove--now we circle back and prove the lemma.
+
+Proof: first we show that the $A_n$ have a limit $A$ as $n$ goes to infinity; then we'll show that $f(t)$ does indeed converge to that limit as $t$ goes to $x$. So, let $\epsilon > 0$; by the "uniform Cauchy" property discussed above, there exists $N$ such that $|f_n(t) - f_m(t)| < \epsilon$ for all $t \in E$ and all indices $n, m > N$. Now take the limit, as $t$ goes to $x$, of this inequality: we get $|f_n(x) - f_m(x)| < \epsilon$ by continuity, or $|A_n - A_m| < \epsilon$. Thus the sequence $(A_n)$ is Cauchy and so convergent, with a limit we denote by $A$.
+
+Now that we have a limit for the $A_n$ we can proceed with the second part of the proof outlined above. What we want to do is find some neighborhood around $x$ such that $|f(t) - A| < \epsilon$ for a given $\epsilon > 0$. Using the triangle inequality twice, we get $|f(t) - A| \leq |f(t) - f_n(t)| + |f_n(t) - A_n| + |A_n - A|$. The first of those can be controlled by the uniform convergence of $(f_n)$: we let $N_1$ be such that $|f(t) - f_n(t)| < \epsilon/3$ for all $n > N_1$. The last can be controlled by the convergence of the $A_n$: let $N_2$ be such that $|A_n - A| < \epsilon/3$ for all $n > N_2$. As for the middle, we have to do something a bit trickier: letting $N = \max(N_1, N_2)$, and letting $V$ be a neighborhood of $x$ such that $|f_n(t) - A_n| = |f_n(t) - f_n(x)| < \epsilon/3$ for all $t \in V$ (which exists because of the continuity of $f_n$), we can then say that, for all $t \in V, n > N$, we have $|f(t) - A| < \epsilon/3 + \epsilon/3 + \epsilon/3 = \epsilon$ (by the inequality from before). So $f(t)$ goes to $A$ as $t$ goes to $x$, as desired.
+
+### Counterexample to the Converse
+On the other hand, if a sequence of continuous functions converges pointwise to a continuous function, it might not be uniform convergence. 
+
+## Integrals
+Uniform convergence allows limits of sequences of functions to be interchanged with integrals: more precisely, if $(f_n)$ is a sequence of integrable functions converging uniformly to $f$, then $f$ is integrable, and $\int_a^b fd\alpha = \lim_{n \to \infty} \int_a^b f_nd\alpha$. Proof: letting $\epsilon_n = \sup_{[a, b]} |f_n - f|$, then $f_n - \epsilon_n \leq f \leq f_n + \epsilon_n$; we then have $\int (f_n - \epsilon_n) d\alpha \leq \underline{\int} fd\alpha \leq \ol{\int} fd\alpha \leq \int f_n + \epsilon_n d\alpha$. But those first and last integrals are equal to $\int f_n - \int \epsilon_n$ and $\int f_n + \int \epsilon_n$ respectively. Thus the difference between the upper and lower integrals of $f$ can be squeezed under something proportional to $\epsilon_n$, which goes to $0$, so $f$ is integrable. We're similarly forced to conclude that $\int fd\alpha = \lim_{n \to \infty} \int f_n d\alpha$. 
+## Derivatives
+Even when a sequence of functions $f_n$ converges uniformly to $f$, the derivatives $f_n'$ may not converge, uniformly or otherwise, to $f'$. (Example: $\sin(nx)/\sqrt{n}$.) However, if the derivatives do converge, we can guarantee that the original sequence converges, and that the derivatives converge to what we expect, given some additional technical conditions.
+
+Let $(f_n)$ be a sequence of differentiable functions on $[a, b]$, such that the sequence $(f_n(x_0))$ converges for some $x_0$. If $(f'_n)$ converges uniformly, then $(f_n)$ converges uniformly to a function $f$, with $f'(x) = \lim_{n \to \infty} f_n'(x)$. 
+
+Proof: first note that we can use the mean value theorem to control how much our functions vary on a given interval. In general if $g$ is differentiable on $[x, t]$ then there exists $c \in [x, t]$ such that $|g(x) - g(t)| = |g'(c)||t - x| \leq \sup_{[x, t]}|g'| \cdot |t - x|$. 
+
+With this in mind, we can begin the proof proper. Let $\epsilon > 0$; since the $f_n'$ converge uniformly, there exists $N$ such that, for all $n, m > N$, we have $|f_n'(t) - f_m'(t)| \leq \epsilon/2(b-a)$ for all $t \in [a, b]$. Also, since $(f_n(x_0))$ converges, it is Cauchy, so we can pick $N$ such that $|f_n(x_0) - f_m(x_0)| < \epsilon/2$ for all $n, m > N$. Now we try to show that $(f_n)$ is uniformly Cauchy as well, by applying the mean value theorem to $f_n - f_m$. If we look at $|f_n(x) - f_m(x) - f_n(t) - f_m(t)|$, we know by the result above that it is at most $\sup_{t \in [a, b]} |(f_n' - f_m')(t)||t - x|$, which is at most $\epsilon/2$, by the bound we got on $|f_n' - f_m'|$ earlier. 
+
+Now we can start using the fact that $(f_n(x_0))$ converges. We get $|f_n(x) - f_m(x)| = |f_n(x) - f_m(x) - (f_n(x_0) - f_m(x_0)) + (f_n(x_0) - f_m(x_0))|$, which, by the triangle inequality, is at most  $|f_n(x) - f_m(x) - (f_n(x_0) - f_m(x_0))| + |f_n(x_0) - f_m(x_0)| < \epsilon/2 + \epsilon/2 = \epsilon$. Thus $(f_n)$ is uniformly Cauchy and so uniformly convergent. 
+
+
+# Series of Functions
+As with numerical sequences, we can define the limit of a sum of functions $\sum_n f_n$ using the sequence of partial sums $f_1, f_1 + f_2, f_1 + f_2 + f_3, \dots$ If this converges pointwise or uniformly to a limit $f$, we say that the series converges pointwise or uniformly to $f$. Equivalently, we define a function $f(x) = \sum_n f_n(x)$ to be the sum of the series $\sum_n f_n$, if the sum (of numbers) $\sum_n f_n(x)$ converges for all $x$. 
+
+## Weierstrass Test
+Suppose we have a sequence of bounded functions on $E$, i.e. for each $n$ there exists $M_n$ such that $|f_n(x)| \leq M_n$ , and suppose that $\sum_n M_n$ converges. (Necessarily it will converge absolutely.) Then the series of functions $\sum_n f_n$ converges uniformly. 
+
+Proof: take $\epsilon > 0$; since $\sum M_n$ converges, there exists some $N$ such that, for all $n \geq m \geq N$, we have $\sum_{i = m+1}^n M_i \leq \epsilon$. (This is the "Cauchy"-type condition for series of numbers.) Then for all $x \in E$, letting $s_n = \sum_{i=0}^{n}f_i(x)$, we have $|s_n(x) - s_m(x)|  = |\sum_{i = m+1}^n f(x)| \leq \sum_{i = m+1}^n |f_i(x)| \leq \sum_{i = m+1}^n |M_i| \leq \epsilon$. Thus $f_n$ obeys the "uniform Cauchy" condition from above, and so converges uniformly. 
+
+# The Metric Space of Bounded, Continuous Functions
+Given a metric space $X$, we can consider functions from $X$ to $\R$. If these functions are continuous and bounded (mentioning boundedness is redundant if $X$ is compact), we can define a natural metric on the set $C(X)$ of all such functions, using the "sup norm": $||f|| = \sup_{x \in X} |f(x)|$. Since the functions are all bounded, this will be always be finite and well-defined. We can also check the other main properties of norms. $||f|| = 0$ if and only if $f$ is $0$ everywhere on $X$. We also have a triangle inequality, $||f + g|| \leq ||f|| + ||g||$, just by using the triangle inequality on $|f(x) + g(x)|$: since $|f(x) + g(x)| \leq |f(x)| + |g(x)|$ for any $x$, we have $\sup_{x \in X} |f(x) + g(x)| \leq \sup_{x \in X} |f(x)| + \sum_{x \in X} |g(x)| = ||f|| + ||g||$. 
+
+This norm then induces a metric, $d(f, g) = ||f - g||$. We can then see that uniform convergence of sequences of functions is equivalent to convergence of sequences of functions in this metric space. 
+
+FILL IN MISSING STUFF LATER
+
+We first note that our one of our desired results about convergent subsequences hold on countable sets. That is, if $(f_n)$ is a pointwise bounded sequence on a countable set $E$, then $(f_n)$ has a subsequence $(f_{n_k})$ such that $(f_{n_k})$ converges for all $x \in E$. 
+
+Proof: first enumerate the points of $E$ as $(x_n)$. For any given $x_i$, the sequence $f_n(x_i)$ is bounded and so has a convergent subsequence, which we denote $S_i = (f_{i, k})$; this converges as $k$ goes to infinity. We can write out all the $S_i$ in a grid:
+
+$f_{1, 1}, f_{1, 2}, f_{1, 3}, \dots$
+$f_{2, 1}, f_{2, 2}, f_{2, 3}...$
+$\vdots$
+
+(Note that these are sequences of functions, not of real numbers--we aren't evaluating the $f_{i, j}$.) 
+
+Recall the definition of equicontinuity: a set $F$ of functions is equicontinuous if, for all $\epsilon > 0$, there exists $\delta > 0$ such that $|x - y| < \delta$ implies $|f(x) - f(y)| < \epsilon$. This is connected to uniform convergence: let $K$ be a compact metric space, and let $(f_n)$ be a sequence of continuous functions on $K$ that converges uniformly. Then the set $\{f_n\}$ is equicontinuous.
+
+The rough idea of the proof is that, for a given $N$, we have $|f_n(x) - f_n(y)| \leq |f_n(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f_n(y)|$ by the triangle inequality. We can use uniform Cauchy to pick a large enough $N$ that the first and last terms can be controlled, and then use the uniform continuity of $f_N$ (since it is continuous on a compact set) to pick a $\delta$ such that the middle term is controlled.
+
+All this builds up to the Arzela-Ascoli theorem: let $K$ be a compact metric space, with $f_n \in C(K)$; if $(f_n)$ is pointwise bounded and equicontinuous, then a) $(f_n)$ is in fact uniformly bounded and b) $(f_n)$ has a uniformly convergent subsequence. b) is the most important condition here, reminiscent of the fact that in a compact set, any sequence has a convergent subsequence.
+
+First we handle (a). Let $\epsilon > 0$; since the $f_n$ are equicontinuous we have $\delta > 0$ such that, for all $n, x, y$, with $d(x, y) < \delta$, we have $|f_n(x) - f_n(y)| < \epsilon$. Since $K$ is compact we can cover it with finitely many balls $B_\delta(x_i)$; since $(f_n)$ is pointwise bounded, for each of those $x_i$ there exists $M_i$ with $|f_n(x_i)| \leq M_i$ for all $n$. Now let $x \in K$, and let $x_i$ be the point such that $B_\delta(x_i)$ contains $x$. Then for all $n$, $|f_n(x)| \leq |f_n(x_i) - f_n(x)| + |f_n(x_i)|$; the first of those terms is less than $\epsilon$ by equicontinuity, the second is at most $|M_i|$ ,and so $|f_n(x)| \leq 1 + \max M_i$ (well-defined since there are finitely many $M_i$). This then gives a uniform bound on the $f_n$. 
+
+Now we move on to (b). Pick a countable dense subset $E$ of $K$ (which must exist since $K$ is compact); there exists a subsequence $g_i = f_{n_i}$ such that $g_i(x)$ converges for all $x \in E$. Now we try to extend this convergence to convergence on the rest of $K$. Let $\epsilon > 0$; by equicontinuity there exists $\delta > 0$ such that, for all $i, x, y$ with $d(x, y) < \delta$, we have $|g_i(x) - g_i(y)| < \epsilon$. Cover $K$ with $\delta$-balls around every point of $E$ (this is a cover since $E$ is dense in $K$), and reduce to a finite covering, $K \subseteq \bigcup_{j=1}^m B(x_j, \delta)$ where the $x_j$ are in $E$. 
+
+Now, since $(g_i)$ converges on $E$, there exists $N$ such that $|g_i(x_k) - g_j(x_k)| < \epsilon$ for all $k \in 1, \dots, m$ and $i, j \geq N$ (by the Cauchy property). Now let $x \in K$. There exists $x_k$ such that $x \in B(x_k, \delta)$, since those balls cover $K$. We have $|g_i(x) - g_i(x_k)| < \epsilon$ by equicontinuity and the fact that $x$ is in the $\delta$-ball around $k$. Now look at $|g_i(x) - g_j(x)|$; this is at most $|g_i(x) - g_i(x_k)| + |g_i(x_k) - g_j(x_k)| + |g_j(x_k) - g_j(x)|$ by the triangle inequality. The first and third of those terms are bounded by $\epsilon$ per that consequence of equicontinuity, and the second is bounded by Cauchyness. Thus $|g_i(x) - g_j(x)| < 3\epsilon$ for all $x$, so the $g_i$ are uniformly Cauchy and so uniformly convergent. 
+
+# Power Series
+We review some basic facts about power series. If the (numerical) series $\sum c_nx^n$ converges for $|x| < R$, then the sequence of functions $f(x) = \sum c_nx^n$  converges uniformly for $|x| < R - \epsilon$ for any $\epsilon$. If it is continuous on $[-R, R]$ then it is infinitely differentiable on $[-R, R]$, and we can differentiate term by term; it is also integrable, and we can integrate it term by term. (On the other hand, infinitely differentiable does not imply analytic.) The coefficients on a power series are unique in the following sense under the following conditions: if $\sum a_nx^n$ and $\sum b_nx^n$ converge on $S = (-R, R)$, let $E$ be the set of all points in this interval where the two power series agree; if $E$ has a limit point in $S$ then $a_n = b_n$ for all $n$ and so the equality of power series holds for all $x \in S$. 

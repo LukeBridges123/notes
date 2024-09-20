@@ -1,0 +1,5 @@
+## Pigeonhole Principle and its Variants
+The "classic" pigeonhole principle is as follows: let n, k be nonnegative integers; if a set S of k elements is partitioned into n disjoint subsets, with n < k, then one of those subsets has more than one element; informally, if k pigeons are put into n holes, with n < k, then one hole contains more than one pigeon. Proof: suppose for a contradiction that all of the n subsets have at most one element; then, summing up the total number of elements across all the subsets, there are less than or equal to n of them. Thus S contains less than or equal to n items. But this is impossible since n < k and S, by hypothesis, contains k items. 
+
+A "generalized" pigeonhole principle can be stated as follows: let n, k, r be nonnegative integers; if a set S of n elements is partitioned into k subsets, with n > kr, then at least one subset contains more than r elements. The proof is completely analagous: if every subset contained at most r elements, then there would be fewer than kr elements total, contradicting the hypothesis that there are n elements overall with n > kr.
+
