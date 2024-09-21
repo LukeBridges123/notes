@@ -1,3 +1,4 @@
+$\newcommand{\R}{\mathbb{R}}$ 
 # Motivations and Definitions for the Tangent Space
 Intuitively, a tangent vector at a given point $p$ in a manifold is a vector attached to $p$ such that, if you walk an infinitesimal step in the direction of that vector, you'll stay on a manifold. There are several equivalent ways to make this concept more precise.
 ## Tangent Spaces for Embedded Submanifolds
