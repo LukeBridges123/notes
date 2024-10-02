@@ -1,6 +1,7 @@
 $\newcommand{\ket}[1]{|#1 \rangle}$
 $\newcommand{\bra}[1]{\langle #1 |}$
-$\newcommand{\tr}{\operatorname{tr}}$ $\newcommand{\ol}{\overline}$ 
+$\newcommand{\tr}{\operatorname{tr}}$ 
+$\newcommand{\ol}{\overline}$ 
 # Quantum Mechanics for Qubits
 First we consider the postulates of QM in a more specific and concrete context: systems of qubits, with measurements in the computational basis.
 

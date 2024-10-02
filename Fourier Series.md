@@ -1,4 +1,5 @@
-$\newcommand{\C}{\mathbb{C}}$ 
+$\newcommand{\C}{\mathbb{C}}$
+$\newcommand{\R}{\mathbb{R}}$
 # Trigonometric Polynomials and Trigonometric Series
 Power series are to polynomials what Fourier series are to trigonometric polynomials, so we start there. A trigonometric polynomial is a function of the form $g(x) = \sum_{-N}^N c_me^{imx}$ . $g$ will be real-valued for all real $x$ if and only if $c_m = \ol{c_{-m}}$ for all $m$. This is a polynomial in powers of $e^{ix}$, which is $\cos\theta + i\sin\theta$. We can also write this as $a_0 + \sum_{n=1}^N a_n\cos(nx) + b_n\sin(nx)$.  
 

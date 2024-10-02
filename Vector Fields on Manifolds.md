@@ -1,5 +1,5 @@
 # Vector Fields and the Tangent Bundle
-Intuitively, a vector field on a manifold is a function that assigns each point on the manifold one of the tangent vectors at that point. This means that, if $X$ is a vector field, it's a map $M \to TM$ with $X(p) \in T_pM$ for all $p$: in other words, a vector fields is just a section of the tangent bundle.
+Intuitively, a vector field on a [[Manifolds|manifold]] is a function that assigns each point on the manifold one of the [[Tangent Spaces|tangent vectors]] at that point. This means that, if $X$ is a vector field, it's a map $M \to TM$ with $X(p) \in T_pM$ for all $p$: in other words, a vector fields is just a section of the tangent bundle.
 
 Now we can write vector fields in local coordinates using what we know. For any $x$ in the manifold we have, in local coordinates $x^i$, $X(x) = \sum_i^n a^i(x) \frac{\partial}{\partial x^i}$. $X$ is a smooth vector field if and only if all the coefficient functions $a^i$ are smooth. 
 
