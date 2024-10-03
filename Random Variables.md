@@ -1,6 +1,6 @@
 $\newcommand{\var}{\operatorname{Var}}$
 # Definitions
-A random variable is, roughly speaking, any way of assigning probabilities to numbers. A discrete random variable is one with a finite or countable set of possible outcomes--usually, but not necessarily, integers. A continuous random variable is one with uncountably many possible outcomes, typically consisting of entire intervals of real numbers.
+A random variable is, roughly speaking, any way of assigning probabilities to numbers. A [[Discrete Distributions|discrete random variable]] is one with a finite or countable set of possible outcomes--usually, but not necessarily, integers. A continuous random variable is one with uncountably many possible outcomes, typically consisting of entire intervals of real numbers.
 
 Discrete random variables are specified by "probability mass functions", or pmfs, which simply give, for any possible outcome $k$, the probability that the random variable is equal to $k$. In continuous random variables, the probability of any particular outcome is $0$--we can only specify the probabilities of entire *intervals*. This is done with a "probability density function" or pdf: a function $p(x)$ such that the probability that $X$ will be between $a$ and $b$ is $\int_a^b p(x)dx$. 
 # Statistics of Random Variables

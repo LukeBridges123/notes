@@ -44,10 +44,11 @@ On the other hand, if we've just parsed a token as E, there's no problem: either
 
 But the situation with S isn't as bad as it may seem. Whenever we expand an S, we get an E as our first new nonterminal in either case. So consider the rules: S -> ES', S' -> +S | $\epsilon$. Now when we encounter an $S$ there's only a single rule to apply, and when we encounter an $S'$, which rule we apply depends only on the next part of the string (whether it's a + or the empty string).
 
+.....
+.....
+.....
 
+# Abstract Syntax Trees
+A "full" parse tree will contain lots of redundant information; we can simplify it into an "abstract syntax tree" that removes much of that. For example, "direct transitions" like A -> B -> x, where A, B are nonterminals and x is a terminal, can be simplified to just x. (On the other hand transitions that lead to "branching" cannot necessarily be simplified like this.) Often characters like parentheses affect how we parse an expression, and would be stored in a full parse tree, but can be discarded in an AST. In fact, we don't need to store the parse tree at all--we can build the AST directly during the parsing process. 
 
-
-
-
-
-
+The leaves of an AST can be literals (numbers, strings), variables, calls to functions with no arguments, etc. 
