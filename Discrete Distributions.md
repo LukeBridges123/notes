@@ -20,3 +20,22 @@ For another variant on the binomial distribution, which is also a generalization
 The probability of getting any particular string of $k$ failures and $n$ successes is $p^n (1-p)^k$. To count the number of such strings, note that we require the last element of the string to be a success, but otherwise we can distribute the remaining $n-1$ successes and $k$ failures however we want among the first $(n-1) + k$ positions in the string. There are $\binom{n + k - 1}{k}$ or $\binom{n+k-1}{n-1}$ ways to do that, hence $P(X =k) = \binom{n + k - 1}{k}p^n (1-p)^k$. 
 
 # Poisson Distribution
+In the [[Continuous Distributions#Exponential Distribution|exponential distribution]], we have events occuring randomly at a constant rate $\lambda$, in the sense that any interval $[t_1, t_2]$ will have $\lambda(t_2 - t_1)$ events on average, and events occur independently from one another. The exponential distribution gives us the probability that we will have to wait $t$ seconds before the next event occurs. The Poisson distribution starts from much the same setup, but instead tells us the probability that, within the next (say) second, $k$ events will occur. It is given by $P(X = k) = \frac{a^k e^{-a}}{k!}$. (The parameter $a$ will turn out to equal the expected number of events in the time interval under consideration, $a = \lambda t$.)
+## Derivation of the Poisson Distribution
+### Discrete Approximation
+Let $t$ be the time interval and $\lambda$ be the rate at which events occur. Then divide $t$ into $n$ intervals, each of width $\epsilon = \frac{t}{n}$, and suppose that at most one event can occur in each interval. Whether an event occurs in a given interval is modeled by a Bernoulli trial; the expectation of this trial should be $\lambda \epsilon$, so the probability that an event will occur in any given interval is $p = \lambda \epsilon$. If we then want the probability that exactly $k$ events will occur, this is just given by a [[Discrete Distributions#Binomial Distribution|binomial distribution]] with parameters $p, n$. Thus $P(X = k) = \binom{n}{k}p^k (1-p)^{n-k}$, or, expanding out $p$, $\binom{n}{k}(\lambda \epsilon)^k (1 - \lambda \epsilon)^{n-k}$. 
+### Continuous-Time Limit
+Now we take the limit as $\epsilon$ goes to $0$ (and $n$, the number of sub-intervals, goes to infinity). Rewrite $P(X=k)$ as $\frac{n!}{(n-k)!k!}(\lambda \epsilon)^k (1 - \lambda \epsilon)^n (1 - \lambda \epsilon)^{-k}$. 
+
+As $\epsilon$ goes to $0$, $(1 - \lambda \epsilon)$ goes to $1$ while $k$ stays constant, so the last term goes to $1$. For the second-to-last term, we can rewrite $\lambda \epsilon = \lambda \frac{t}{n} = \frac{a}{n}$ and then use $\lim_{n \to \infty} (1 - \frac{a}{n})^n = e^{-a}$.
+
+As $n$ goes to infinity and $k$ stays fixed, and we can make the approximation $\frac{n!}{(n-k)!} = n^k$--the former is the number of ways to sample $k$ individuals without replacement from a population of $n$, the latter is the number of ways to do the same thing with replacement, and as the sample gets small relative to the population, it matters less and less whether you sample with or without replacement. 
+
+Combining all this, we have that $P(X = k)$ approaches $\frac{n^k}{k!}(\lambda \epsilon)^k e^{-a}$. Merging the $n^k$ and the $(\lambda \epsilon)^k$ gets $(\lambda \epsilon n)^k = (\lambda t)^k = a^k$. Thus $P(X = k)$ approaches $\frac{a^k e^{-a}}{k!}$. 
+## Properties
+### Expectation
+The definition of $a$ seems to imply that it should be the expected value of the Poisson distribution. Indeed $E(X) = \sum_k k\frac{a^k e^{-a}}{k!} = \sum_k \frac{a^k e^{-a}}{(k-1)!} = ae^{-a} \sum_k \frac{a^{k-1}}{(k-1)!} = ae^{-a}e^a = a$. 
+### Mode 
+The Poisson distribution is unimodal. To see this (and find the mode), note first that the sequence of probabilities for each $k$ is a constant multiple of the sequence $1, a, \frac{a^2}{2}, \dots, \frac{a^k}{k!}, \dots$ Note that $\frac{a^k}{k!} \leq \frac{a^{k+1}}{(k+1)!}$ if and only if $1 \leq \frac{a}{k+1}$ (dividing both sides by $a^k$ and multiplying by $k!$). This happens if and only if $k \leq a - 1$ Thus the last term which is larger than its predecessor is $\frac{a^{k+1}}{(k+1)!}$ where $k$ is the greatest integer less than $a-1$, or in other words $k$ is the likeliest value of the Poisson distribution if $k-1 = \operatorname{floor}(a-1)$. In the special case where $a$ is an integer, this happens when $a = k$. 
+
+### Variance 

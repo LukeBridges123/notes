@@ -13,3 +13,10 @@ The proof relied only on the boundedness of $A$ and the completeness of the spac
 
 In fact, we can generalize further by replacing the exponential with any analytic function. If $f$ is an analytic function whose power series converges at $||A||$, then $f(A)$ can be defined in the same way as the matrix exponential. 
 
+# Basic Properties
+## Change of Basis
+The matrix exponential 
+## Commuting Matrices
+
+## Determinants of Exponentials
+
