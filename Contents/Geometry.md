@@ -1,6 +1,6 @@
 [[Manifolds]] Topological and smooth manifolds. Charts and atlases. Quotient manifolds. Smooth functions on manifolds. Immersions, submersions, embeddings, and diffeomorphisms. Embedding theorems. Level sets and the regular value theorem. 
 [[Tangent Spaces]] Definition of the tangent space using derivations. Tangent vectors in local coordinates; standard basis for tangent vectors in a given coordinate system. Equivalent definition of tangent vectors as velocity vectors of curves. Differentials of smooth maps, and their relation to all major definitions of tangent spaces. The tangent bundle; vector bundles in general. 
-[[Vector Fields on Manifolds]] Smooth vector fields on manifolds. The bracket operation on vector fields; general definition of a Lie algebra. Integral curves of a vector field. 
-[[Lie Groups and Lie Algebras]] 
+[[Vector Fields on Manifolds]] Smooth vector fields on manifolds. The bracket operation on vector fields. Integral curves of a vector field. Flows: existence and uniqueness, the maximal flow theorem. Lie derivatives. Vector fields related by a smooth map. 
+[[Lie Groups and Lie Algebras]] Definition of a Lie group. Examples, including several matrix Lie groups--$GL(n, \R)$, $SL(n, \R)$, $O(n)$, $SO(n)$. Lie algebras: abstract Lie algebras and the Lie algebra associated with a Lie group. The exponential map. Lie subgroups, including one-parameter subgroups; the closed subgroup theorem. Lie algebra homomorphism induced by a Lie group homomorphism. 
 [[Projective Geometry]]
 [[Quadratic Curves and Quadric Surfaces]] Classification of quadratic curves and quadric surfaces. Parameterizations of quadratic curves. 

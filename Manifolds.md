@@ -34,7 +34,6 @@ If $M$, $N$ are $m$ and $n$ dimensional $C^k$ manifolds, then on their product t
 
 ## Quotient Manifolds
 
-
 # Functions on Manifolds
 
 ## Smooth Functions on Manifolds
@@ -51,7 +50,7 @@ More generally, a map between manifolds $f: M \to N$ is $C^k$ if the following h
 We can then define a diffeomorphism of manifolds to be a smooth (in this new sense) function between manifolds with a smooth inverse. It then turns out that charts on smooth manifolds are diffeomorphisms onto their images. 
 
 ## Immersions, Submersions, etc.
-Let $U$ be an open subset of $\R^n$, and consider a smooth map $f: U \to \R^m$. 
+Let $U$ be an open subset of $\R^n$, and consider a smooth map $f: U \to \R^m$. (Here we're just working in Euclidean space, but everything we say will generalize to arbitrary manifolds, once we have [[Tangent Spaces#Differentials and Tangent Spaces|the right definition of a differential]]. Basically all that's needed to extend our proofs to functions between manifolds is introduce coordinates, and then the proofs go through more-or-less the same. )
 
 When $n = m$, the inverse function theorem gives a connection between the rank of $Df$ and the invertibility of $f$: $f$ is locally a diffeomorphism iff $Df$ is invertible.
 
@@ -68,19 +67,21 @@ We can prove this with a similar strategy: we can, by making translations and li
 
 The above theorems are all special cases of the "constant rank theorem": if $(Df)_p$ has constant rank $r$ for all $p \in U$, then $f$ is locally equivalent to the "standard rank-$r$ map", $f(x^1, \dots, x^n) = (x^1, \dots, x^r, 0, \dots, 0)$, where that vector on the right-hand side has $m$ total entries. Note that this theorem has stronger assumptions: it needs constant rank on a whole neighborhood of $p$, while the inverse function theorem, local submersion theorem, and local embedding theorem only put conditions on $Df$ on a single point. This is because, if $Df$ is surjective at one point, it must be surjective on some neighborhood about that point, and the same goes for injectivity and bijectivity--assuming smoothness or at least continuous differentiability, anyway. 
 
+## Invariance of Dimension
+
+# Submanifolds
 ## Embedded Submanifolds
-In general we can say that a submanifold of a manifold is a subset that is itself a manifold. But this turns out to be too general, and it is better to consider the following definition. A subset $S$ of an n-dimensional manifold $M$ is a k-dimensional "embedded submanifold" if each point $p \in S$ has a neighborhood $U$ with local coordinates $x^1, \dots, x^n$ such that $S \cap U$ consists of all points of the form $(x^1, \dots, x^k, 0, \dots, 0)$. This is called a "local product chart" or "$S$-adapted chart".
+In general we can say that a submanifold of a manifold is a subset that is itself a manifold. But this turns out to be too general, and it is better to consider the following definition. A subset $S$ of an n-dimensional manifold $M$ is a k-dimensional "embedded submanifold" or "regular submanifold" if each point $p \in S$ has a neighborhood $U$ with local coordinates $x^1, \dots, x^n$ such that $S \cap U$ consists of all points of the form $(x^1, \dots, x^k, 0, \dots, 0)$. This is called a "local product chart" or "$S$-adapted chart".
 
-Take for example the 2-sphere with spherical coordinates $(\theta, \phi, r)$. Define $\psi(\theta, \phi, r) = (\theta, \phi, r - 1)$. .....
-
-We can find manifolds that are immersed, but not embedded, in larger manifolds. Take for example a curve (picture here?) 
-
+Take for example the unit 2-sphere. If we modify the standard spherical polar coordinates $(\theta, \phi, r)$ to $(\theta, \phi, r-1)$, then these form an adapted chart on the sphere--the third coordinate will be $0$ for all the points with distance $1$ from the origin, i.e. all points in the 2-sphere. 
 ### Embedding Theorems
 It's easy to prove that every smooth, compact manifold can be embedded in $\R^N$ for some sufficiently large $N$. Proof: for every $p \in M$, choose a chart $\phi_p: U_p \to \R^n$, and a "smooth bump function" $\beta_p$ with radius $r_p$ so that $B_{2r_p} \subseteq U_p$, $\beta_p = 1$ everywhere on $B_{r_p}(p)$, and $\beta_p = 0$ everywhere outside of $B_{2r_p}$. The chart domains $U_p$ give an open cover of $M$, and by compactness there exists a finite subcover $U_i$, with corresponding charts $\phi_i$, balls $B_i = B_{r_i}$, and bump functions $\beta_i$. (Say $i = 1, \dots, k$.)
 
 Now define a function $f: M \to \R^N$, with $N = (n+1)k$, by $f(x) = (\beta_1(x), \dots, \beta_R(x), (\beta_1\phi_1)(x), \dots, (\beta_k\phi_k)x)$. (Note that by $\beta_1\phi_1(x)$ we mean the scalar-valued function $\beta_1(x)$ multiplied by the vector-valued function $\phi_k(x)$.) First we show that $f$ is injective. Say $f(p) = f(q)$, and let $i$ be an index with $p \in B_i$, so $\beta_i(p) = 1$; then $\beta_i(q) = 1$ as well, implying $q \in B_i$ as well......end up concluding $\phi_i(p) = \phi_i(q)$ and so $p = q$. Now we also show that $f$ is an immersion. Let $p \in B_i$; the matrix $(Df)_p$, whose entries are of the form $\frac{\partial f^k}{\partial x^l}$, has the submatrix $(\partial \phi_i / \partial x^l)$, which has rank $n$, since $\phi_i$ is a diffeomorphism. This is equal to the dimension of the domain, $Df$ is injective at $p$, so $f$ is a local immersion (by the local immersion theorem) from a compact manifold, and so its image is a closed, embedded submanifold of $\R^N$. 
 
 This theorem gives an embedding into a rather large space, and only works for compact manifolds; the *Whitney embedding theorem* says that every $n$-dimensional smooth manifold embeds into $\R^{2n+1}$, and immerses in $\R^{2n}$. One can also show that this is the best one can do in general: $\R P^n$ cannot be embedded into $\R^{2n}$ or immersed into $\R^{2n-1}$, at least when $n$ is a power of $2$. 
+## Immersed Submanifolds
+### Compact Immersed Submanifolds
 # Level Sets and Regular Values
 Let $M$, $N$ be manifolds with dimensions $n, r$, and let $f: M \to N$ be smooth. The preimage of a single point in $N$, i.e. the set of all points $p \in M$ with $f(p) = q$ for some fixed point $q \in N$, is called the "level set of $f$ at $q$", or the "fiber of $f$ at $q$". If, furthermore, $Df_p$ has maximal rank/is surjective for all points $p$ in the level set, $q$ is called a "regular value" of $f$; otherwise it is a "critical value", and the points where $Df$ does not have full rank are called "critical points". 
 
@@ -101,4 +102,4 @@ Similar arguments work for [[Quadratic Curves and Quadric Surfaces|zero sets of 
 
 We can regard the standard torus as a set in $\R^4$ defined as the set of all points $(x, y, z, w)$ with $x^2 + y^2 = 1$ and $z^2 + w^2 = 1$ (hence $S^1 \times S^1$). Define a map $\R^4 \times \R^2$ by $(x, y, z, w) \to (x^2 + y^2, z^2 + w^2)$, and then the torus becomes the preimage of $(1, 1)$. Again we can check the differential; it is the $4 \times 2$ matrix with $(2x, 2y, 0, 0)$ in the first row and $(0, 0, 2z, 2w)$ in the second. This has rank $2$ as long as at least one of $x, y$ and at least one of $z, w$ is nonzero, which is certainly true for the torus. Thus $(1, 1)$ is a regular value and the torus is a 2-dimensional manifold (an embedded submanifold of $\R^4$; or one can go further, noting that it's a subset of the closed ball around $0$ of radius $2$ in $\R^4$, which incidentally proves that the torus is compact). A similar argument works for the $n$-torus, considering it as an embedded submanifold of $\R^{2n}$. 
 
-
+This sort of reasoning generalizes to show that the solution sets of other systems of equations form a manifold. If we have, for instance, a system of $m$ equations $f_i(x_1, \dots, x_n) = c_i$ in $n$ variables, we can define a map $\R^n \to \R^m$ by $(f_1(x_1, \dots, x_n), \dots, f_m(x_1, \dots, x_n))$, and see whether $(c_1, \dots, c_m)$ is a regular value. If so, the solution set of the system will be a manifold of dimension $n-m$. 

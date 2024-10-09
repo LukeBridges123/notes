@@ -25,3 +25,22 @@ Recall that the median of a continuous distribution is the number $a$ such that 
 Calculating the variance of an exponential distribution proceeds very similarly to calculating the expected value. As usual $\var(X) = E(X^2) - E(X)^2$; we have $E(X)^2 = \frac{1}{\lambda^2}$ and $E(X^2) = \int_0^\infty t^2 \lambda e^{-\lambda t}dt$. Once again, we can set $u = t^2, v = \lambda e^{-\lambda t}$ and integrate by parts, to get $\int t^2 \lambda e^{-\lambda t}dt = -t^2 e^{-\lambda t} + 2\int t e^{-\lambda t}dt$. Note however that the second integral (taken from $0$ to $\infty$) is $\frac{1}{\lambda}E(X)$, since $E(X) = \int_0^\infty t\lambda e^{-\lambda t}dt$. Thus we get $-t^2 e^{- \lambda t}|_0^\infty + \frac{2}{\lambda^2}$, and the first term is $0$, so we're left with $E(X^2) = \frac{2}{\lambda^2}$. Thus $\var(X) = E(X^2) - E(X)^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$. 
 
 # Gaussian Distribution
+The Gaussian or normal distribution has as its pdf $\rho(t) = \sqrt{\frac{1}{2\pi\sigma^2}}e^{-(t - \mu)^2/2\sigma^2}$, sometimes instead written as $\sqrt{\frac{b}{\pi}}e^{-b(t-\mu)^2}$ where $b = \frac{1}{2\sigma^2}$. 
+## Evaluating the Gaussian Integral
+
+## Mean, Median, and Mode
+A Gaussian with parameters $b, \mu$ has its mean, median, and mode all at $\mu$. 
+
+To see why the mode is at $\mu$, note that the exponent in the pdf is always negative or $0$ (since $(t-\mu)^2$ is always positive), equalling $0$ only when $t = \mu$. Thus the pdf has an absolute maximum at $t = \mu$, and monotonically decreases as you get further from $\mu$. The "height" of the distribution, i.e. the value of the pdf at its maximum, is $\sqrt{\frac{b}{\pi}}$. 
+
+The Gaussian is also symmetric about $\mu$: if we write $t = \mu + h$, we get $\rho(t) = \sqrt{\frac{b}{\pi}}e^{-b(h)^2}$, while if we write $t = \mu - h$, we get $\rho(t) = \sqrt{\frac{b}{\pi}}e^{-b(-h)^2} =  \sqrt{\frac{b}{\pi}}e^{-b(h)^2}$. Thus $\rho(\mu + t) = \rho(\mu - t)$, and so the value of the pdf depends only on the distance from $\mu$. This first implies that $\int_{-\infty}^\mu \rho(t)dt = \int_\mu^\infty \rho(t)dt$, so $\mu$ is the median. It also implies that $\mu$ is the mean. Consider first the case where $\mu = 0$, so $\rho(t) = \sqrt{\frac{b}{\pi}}e^{-bt^2}$. Then $\rho(-t) = \rho(t)$, and we have $E(X) = \int_{-\infty}^\infty t\rho(t)dt = \int_{-\infty}^0 t\rho(t)dt + \int_0^\infty t\rho(t)dt$. Substituting $-t$ for $t$ in the first term and using symmetry gets $\int_0^\infty (-t)\rho(-t)dt + \int_0^\infty t\rho(t)dt = -\int_0^\infty t\rho(t)dt + \int_0^\infty t\rho(t)dt = 0$. Thus when $\mu = 0$ the mean is $0$. If we then make the substitution $t = x - \mu$ we get $\int_{-\infty}^\infty (x - \mu)\rho(x - \mu)dx$. This should be $0$ as before--a translation doesn't change the value of an integral. Thus $0 = \int_{-\infty}^\infty (x - \mu)\rho(x - \mu)dx = \int_{-\infty}^\infty x\rho(x - \mu)dx - \mu\int_{-\infty}^\infty \rho(x - \mu)dx$. The first term is $E(X)$ when $X$ is the Gaussian with parameter $\mu$, and the second is $-\mu$ multiplied by the total probability $\int_{-\infty}^\infty \rho(x - \mu)$, which is $1$. Thus $0 = E(X) - \mu$ and $E(X) = \mu$. 
+
+The same reasoning extends to any probability distribution which is symmetric about some point $c$--it must have a mean of $c$. 
+
+## Variance and Standard Deviation
+A Gaussian with parameters $\mu, \sigma$ has variance $\sigma^2$ (or $\frac{1}{2b}$).
+
+To show this, we first translate the distribution so $\mu = 0$. Then $\var(X) = E(X^2) = \int_{-\infty}^\infty x^2 \rho(x)dx$. To find $\int x^2 \rho(x)dx$ we integrate by parts, with $u = x, dv = x\rho(x)$. Then $v = -\sigma^2 \rho(x)$ (since $\rho'(x) = \rho(x) \cdot -\frac{x}{\sigma^2})$ and we get $\int x^2 \rho(x)dx = -\sigma^2 x\rho(x) + \int \sigma^2 \rho(x)dx$. That last term, taken to be the integral from $-\infty$ to $\infty$ of $\sigma^2 \rho(x)$, is $\sigma^2$, since $\int_{-\infty}^\infty \rho(x)dx = 1$. As for the first term, taking limits as $x \to -\infty$ and $x \to \infty$ gets us $0$ in both cases, so it goes to $0$. Thus $\var(X) = \int_{-\infty}^\infty x^2 \rho(x)dx = \sigma^2$, and by extension the standard deviation of $X$ is $\sigma$. 
+
+It is true for any Gaussian distribution that $P(-\sigma \leq X \leq \sigma) \approx 0.68$, $P(-2\sigma \leq X \leq 2\sigma) \approx 0.95$, and $P(-3\sigma \leq X \leq 3\sigma) \approx 0.997$. 
+
