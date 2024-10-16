@@ -87,11 +87,11 @@ Let $M$, $N$ be manifolds with dimensions $n, r$, and let $f: M \to N$ be smooth
 
 Consider, for example, the "height function" on the torus, where you take a point on the torus and project to the $z$-axis. Each level set consists of one or two circles cut out from the torus, except at one of four points, where the level set is a single point or a figure-8; these are the four critical points of the function, and the corresponding z-values are the critical values. Clearly those level sets are not manifolds, and all the others are. The situation generalizes, as stated below.
 ## Regular Value Theorem
-Theorem: given a smooth map $f$ as described above, the (nonempty) level set at a regular point $q$ is a closed, embedded submanifold of $M$, of dimension $n - r$. 
+Theorem: given a smooth map $f$ as described above, the (nonempty) level set at a regular point $q$ is a closed, embedded submanifold of $M$, of dimension $n - r$.
 
 For some intuition on the dimension, note that $f$, written in coordinates, has $r$ components, and setting $f$ constant imposes $r$ "constraints". If each of those constraints reduces the dimension of the manifold by 1, then imposing all constraints leaves you with $n-r$ dimensions.
 
-Proof: that the level set is closed follows immediately from the fact that $\{q\}$ is closed and $f$ is continuous: hence preimages of closed sets are closed.
+Proof: that the level set is closed follows immediately from the fact that $\{q\}$ is closed and $f$ is continuous, so preimages under $f$ of closed sets are closed.
 
 Let $S = f^{-1}(q)$. For each $p \in S$, the local submersion theorem guarantees that there exists a neighborhood $U$ of $p$ with local coordinates $(x^1, \dots, x^n)$ and a neighborhood $V$ of $q$ with local coordinates $(y^1, \dots, y^r)$ so that $f(x^1, \dots, x^n) = (x^1, \dots, x^r)$. Then $S \cap U$ is, in these coordinates, equal to the set of all points $(0, \dots, 0, x^{r+1}, \dots, x^n)$, since while using the local submersion theorem we can choose $p$ and $q$ to be the origin of their respective coordinate systems. Thus $(x^{r+1}, \dots, x^n)$ serve as local coordinates for $S \cap U$. Since this is true for all points in $S$, we have local coordinates/charts covering all of $S$, all with $n - r$ coordinates. Now we show that the transition functions are smooth. On overlaps between open sets in $S$, we have transition maps $\phi_{ab}$, etc.--but these are (restrictions of) the original manifold's transition functions (and since one of these transition functions always maps points in $S$ to points in $S$, the restriction is well-defined). Thus all the choices of local coordinates mentioned earlier in the proof form an atlas for $S$, and so $S$ is a manifold of dimension $n - r$. 
 
