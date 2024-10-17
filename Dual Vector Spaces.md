@@ -1,13 +1,29 @@
 # Definition
 Recall that a linear functional on a vector space $V$ is defined to be a linear map $V \to \R$. The set of all linear functionals on $V$ is called the *dual space* of $V$ and denoted $V^*$. 
-# Dimension of the Dual Space
+# Isomorphisms of a Vector Space and its Dual
 That $\dim(V^*) = \dim(V)$ follows immediately from the general result that the space $L(V, W)$ of linear maps $V \to W$ has dimension $\dim(V) \cdot \dim(W)$; that $V^*$ is isomorphic to $V$ then follows from the fact that all vector spaces of the same dimension are isomorphic. 
-
-However, we can also approach this problem in ways that do not directly rely on those results.
 ## Dual Basis
-Given a basis $e_1, \dots, e_n$ of $V$, we can construct a basis of $V^*$, called the "dual basis" of the $e_i$ basis, as follows. Define a linear functional $\omega_i$ by $\omega_i(e_j) = \delta_{ij}$. Since any linear map is completely determined by its action on a basis of the domain, this is a perfectly 
-## Inner Products
-
+Given a basis $e_1, \dots, e_n$ of $V$, we can construct a basis of $V^*$, called the "dual basis" of the $e_i$ basis, as follows. Define a linear functional $\omega_i$ by $\omega_i(e_j) = \delta_{ij}$. Since any linear map is completely determined by its action on a basis of the domain, these are perfectly well-defined linear functionals. The same reasoning implies that any linear functional can be written as a linear combination of the $\omega_i$. If $\omega \in V^*$, then specifying $a_i = \omega(e_i)$ for each $i$ is enough to determine $\omega$: for any $i$ we have $(\sum_j a_j\omega_j)e_i = \sum_j (a_j \omega_j e_i) = \sum_j a_j \delta_{ij} = a_i = \omega(e_i)$; since $\sum_j a_jw_j$ and $\omega$ take the same value on each basis vector, they must be the same map. Thus the $\omega_i$ span $V^*$. Linear independence is easy: we cannot have $c_1\omega_1 + \dots + c_{i-1}\omega_{i-1} + c_{i+1}\omega_{i+1} + \dots + c_n\omega_n = \omega_i$ for some $i$, because the left-hand side, applied to $e_i$, gives $0$, while the right-hand side gives $1$. Thus the $\omega_i$ form a basis of $V^*$, which then implies that $\dim(V^*) = \dim(V)$. 
 ## V** = V
+We can also show, in an "almost-coordinate-free" way, that $V^{**}$, the dual space of $V^*$, is isomorphic to $V$, at least when $V$ is finite-dimensional. We will, however, need to either use the dual basis or appeal to the existence of an inner product near the end, and we will need our earlier results about the dimension of the dual space, which involved a basis. 
 
+For any $v \in V$, define the "evaluation at $v$" map $L_v: V^* \to \R$ by $L_v(\omega) = \omega(v)$. This is then a linear functional on $V^*$, since $L_v(a\phi + b\psi) = (a\phi + b\psi)(v) = a\phi(v) + b\psi(v) = aL_v(\phi) + bL_v(\psi)$. Thus $L_v \in V^{**}$. Now define a map $T: V \to V^{**}$ by $T(v) = L_v$. This is linear in v: we have $T(av + bw) = L_{av + bw}(\omega) = \omega(av + bw) = a\omega(v) + b\omega(w)$ by the linearity of $\omega$; from ther we get $aL_v(\omega) + bL_w(\omega) = (aL_v + bL_w)(\omega) = (aT(v) + bT(w))\omega$. Thus $aT(v) + bT(w) = T(av + bw)$, so $T$ is linear. 
+
+Our result above implies $\dim(V^{**}) = \dim(V^*)$, and $\dim(V^*) = \dim(V)$, so $\dim(V) = \dim(V^{**})$. Thus, if we can show that $T$ is injective, we will then have that it is an isomorphism. This amounts to showing that there is no nonzero vector $v$ such that $L_v$ is the zero map, or in other words that there is no nonzero vector which all linear functionals send to $0$. This is actually false in general infinite-dimensional spaces, so we'll need to use something specific to finite-dimensional spaces here. One approach is to suppose that we have an inner product defined on $V$; then for any vector $w$, the map $v \to \langle v, w \rangle$ is a linear functional. In particular, we can consider applying this to $w$; we will then get $1$ as long as $w$ is nonzero, by the positive-definiteness of the inner product. Thus this linear functional, at least, does not map $w$ to zero, hence $L_w$ is not the zero map as long as $w$ is nonzero, so by the argument above $T$ is injective and is thus an isomorphism.
+
+If we want to avoid inner products we can instead use the dual basis. Letting $v = \sum_i a_ie_i$, if $v$ is nonzero then at least one of the coefficients, say $a_j$, is nonzero. We then have $\omega_j(v) = a_j \neq 0$, so $L_v(\omega_j) \neq 0$, so $L_v$ is not the zero map. 
+
+This map $v \to L_v$ is often called a "natural" or "canonical" isomorphism of $V$ and $V^{**}$, i.e. one that does not rely on arbitrary choices like the choice of a basis, despite the fact that, in order to prove it is an isomorphism, we needed to choose a basis or an inner product. This is because *the definition of the map itself* makes no use of a basis or anything like that; the need for a basis in the proof doesn't change that. 
 # Dual Maps
+Associated with any linear map $T: V \to W$ is a map $T^*: W^* \to V^*$ called the "dual map" or "transpose" of $T$ (the latter name coming from the fact, which we will prove later, that the matrix of $T^*$ is the transpose of the matrix of $T$). It is defined by $T^*(\phi) = \phi \circ T$. In other words, this "pulls back" linear functionals on $W$ to linear functionals on $V$.
+## Properties of the Dual/Pullback Operator
+We can consider the $^*$ symbol as an operator mapping $L(V, W)$ to $L(W^*, V^*)$. It then has the following properties, analogous to the properties of the transpose of matrices:
+
+(a) $(S + T)^* = S^* + T^*$
+(b) $(aS)^* = a(S^*)$
+(c) $(S \circ T)^* = T^* \circ S^*$
+
+For (a), we have $(S + T)^*(\phi) = \phi \circ (S + T) = \phi \circ S + \phi \circ T = S^*(\phi) + T^*(\phi) = (S^* + T^*)(\phi)$, with the second equality following from the linearity of $\phi$, or equivalently from the fact that composition of linear maps distributes over addition. (b) is similar: $(aS^*)(\phi) = \phi \circ aS = a(\phi \circ S) = aS^*$. As for (c), we have $(S \circ T)^*(\phi) = \phi \circ (S \circ T) = (\phi \circ S) \circ T = (S^*\phi) \circ T = T^*(S^*(\phi)) = (T^* \circ S^*)\phi$. 
+
+(a) and (b) together imply that $^*$ is a linear map from $L(V, W)$ to $L(W^*, V^*)$. It is not quite an algebra homomorphism, however, since (c) says that it "reverses the direction" of multiplication. 
+## Dual Maps and the Transpose

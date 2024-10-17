@@ -5,9 +5,15 @@ A Lie group is a [[Groups|group]] which is also a [[Manifolds|manifold]], where 
 ## Vector Spaces
 
 ## General Linear Group
+Recall that $GL(n, \R)$ is the set of all invertible $n \times n$ real matrices, or in other words matrices with nonzero determinant. It is an immersed submanifold of $\R^{n \times n}$ which is also a Lie group.
 
+That $GL(n, \R)$ is a submanifold of $\R^{n \times n}$ follows from the fact that it is an open subset of $\R^{n \times n}$, and open subsets of $\R^N$ are $N$-dimensional manifolds. To see this, note that the set of singular matrices, i.e. matrices with $\det(A) = 0$, is closed (as the preimage of the closed set $\{0\}$), so its complement $GL(n, \R)$ is open. 
+
+Smoothness of matrix multiplication follows from the fact that the entries of $AB$ are polynomials in the entries of $A$ and the entries of $B$. Smoothness of inversion is trickier; Cramer's rule implies that the entries of the inverse are given by determinants of various submatrices of $A$, all divided by $\det(A)$. Thus they are rational functions of the entries of $A$, with discontinuities only at the points where $\det(A) = 0$. 
 ## Special Linear Group
+$SL(n, \R)$ is the subgroup of $GL(n, \R)$ consisting of matrices with determinant $1$. Since it is a level set of the determinant, we might expect that it is a regular submanifold, which indeed it is. 
 
+To prove this, we need to compute the differential of $\det: \R^{n \times n} \to \R$ at points where $\det(A) = 1$. We use the following trick: letting $A$ be such a matrix, consider the function $\R \to \R$ given by $t \to \det(tA)$. On one hand, we have by the chain rule that $\frac{d}{dt}(\det(tA)) = D(\det)_{tA} \circ (\frac{d}{dt}A)_{t}$; on the other hand, since $\det(tA) = t^n \det(A)$, we have $\frac{d}{dt}(\det(tA)) = nt^{n-1}\det(A)$. Thus $D(\det)_{tA} \circ (\frac{d}{dt}tA)_{t}= D(\det)_{tA} \circ A = nt^{n-1}\det(A)$; setting $t=1$ gets us $D(\det)_A \circ A = n\det(A)$. Thus $D(\det)_A$, considered as a row vector, must be nonzero, since the right-hand side is nonzero; but a nonzero row vector is surjective. Thus the differential of $\det$ is surjective everywhere in $SL(n, \R)$, so $SL(n, \R)$ is an embedded submanifold of $GL(n, \R)$ with dimension $n^2 - 1$, by the regular level set theorem. 
 ## Orthogonal Group
 We know that the [[Orthogonal Operators and Isometries|orthogonal matrices]]--the linear maps that preserve lengths and angles, or equivalently the real matrices that satisfy $A^tA = I$--form a group, a subgroup of $GL_n(\R)$. Now we prove that they form a submanifold of $GL_n$ as well, using the regular value theorem.
 
@@ -17,7 +23,7 @@ Now we check that $I$ is a regular value. We start by looking at the differentia
 
 Now consider $(Df)_A(C)$ where $C = \frac{1}{2}AS$ for some symmetric $S$. Then $(Df_A)(c) = \frac{1}{2}(A^TAS + (AS)^TA) = \frac{1}{2}(S + S^TA^TA) = \frac{1}{2}(S + S^T) = \frac{1}{2}(S + S) = S$. Thus for any symmetric matrix $S$, there exists a matrix $C$ with $(Df_A)(C) = S$, so the differential is surjective for any orthogonal $A$, and so $I$ is a regular value of $f$. By the regular value theorem, $O(n)$ is a closed, embedded submanifold of $\R^{n^2}$. It has dimension $n^2$ minus the dimension of the set of all symmetric matrices, $\frac{n(n+1)}{2}$, i.e. $n^2 - \frac{n(n+1)}{2} = \frac{n(n-1)}{2}$. 
 
-The smoothness of the group operations is inherited from $SL_n(\R)$. Thus $O(n)$ is a Lie group. 
+The smoothness of the group operations is inherited from $SL_n(\R)$. Thus $O(n)$ is a Lie group.
 ### Topology of O(n) and SO(n)
 #### O(n) is Disconnected 
 Every orthogonal matrix has determinant $\pm 1$; the matrices with determinant $1$ are another Lie group, $SO(n)$. Since the preimages $\det^{-1}(\{1\})$ and $\det^{-1}(\{-1\})$ are disjoint closed sets whose union is $O(n)$, $O(n)$ is disconnected. Those sets are the two connected components of $O(n)$; they are diffeomorphic, with left multiplication by any matrix $A \in O(n)$ with $\det(A) = -1$ being a diffeomorphism $SO(n) \to O(n) \backslash SO(n)$. Note that, since $O(n)$ is the disjoint union of two "copies" of $SO(n)$, $SO(n)$ must have the same dimension as $O(n)$, namely $\frac{n(n-1)}{2}$. (We prove the connectedness of $SO(n)$ below, and the connectedness of the other component follows immediately from the fact that it is diffeomorphic to $SO(n)$.)
@@ -65,7 +71,7 @@ Define a Lie subgroup of a Lie group $G$ to be a subgroup $H$ of $G$ which is al
 If we restrict ourselves to "embedded Lie subgroups" (which are just subgroups of $G$ that are also embedded submanifolds) then the group operation is automatically smooth. This is because, if $H$ is an embedded subgroup, the inclusion map looks like $i(x^1, \dots, x^k) = (x^1, \dots, x^k, 0, \dots, 0)$ in the right coordinates (the "$H$-adapted chart"). Then, if we see what multiplication looks like in this chart.....
 
 ## Closed Subgroup Theorem
-An easy way to find embedded subgroups is the following: any closed subgroup is an embedded subgroup. This shows, for instance, that $SL(n, \R), O(n), SO(n)$ are all embedded subgroups. 
+An easy way to find embedded subgroups is the following result: any closed subgroup is an embedded subgroup. This shows, for instance, that $SL(n, \R), O(n), SO(n)$ are all embedded subgroups of $GL(n, \R)$. 
 
 ## Lie Group Homomorphisms
 A Lie group homomorphism is a group homomorphism $H \to G$ which is smooth. If $F$ is a Lie group homomorphism, it must send the identity to the identity, hence its differential at the identity is a linear map $T_IH \to T_IG$. We might hope that it is a Lie algebra homomorphism; the only other condition we need is that it respects brackets.

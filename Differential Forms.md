@@ -39,3 +39,47 @@ Some of the most commonly useful properties of 1-forms, the $d$ operator, and th
 (e) $(G \circ F)^*(\omega) = F^*G^*\omega$
 
 (a) and (c) follow from our earlier results....
+
+## Integrating 1-Forms
+....
+....
+....
+Formally, we define integration of a 1-form as follows. Given a curve $C$, choose a parameterization $\gamma: [a, b]$. Pull back the 1-form by $\gamma$ to get a 1-form on $\R$, $\gamma^*\omega = f(t)dt$ for some function $f(t)$. The integral of $\omega$ over $c$ is then defined as $\int_a^b f(t)dt$. 
+
+For example, let $\omega = xydx + \frac{x^2}{2}dy$ and consider integrating it on the section of the parabola $y=x^2$ from $(0, 0)$ to $(2, 4)$. We first parameterize the curve by $\gamma(t) = (t, t^2)$ with $t \in [0, 2]$. Then $\gamma^*\omega = t \cdot t^2 dt + \frac{t^2}{2}d(t^2) = t^3 dt + \frac{t^2}{2} \cdot 2t \cdot dt = 2t^3 dt$. We then have $\int_C \omega = \int_0^2 2t^3 = \frac{t^4}{2}|^2_0 = 8$. 
+
+### Invariance Under Reparameterizations
+In order for this definition in terms of parameterizations to make sense, we need the integral to not depend too much on parameterizations. We can reasonably expect that the direction or orientation of the parameterization matters: this is the case even when integrating functions, where $\int_a^b f(x)dx = -\int_b^a f(x)dx$. To formalize this, let $\gamma: [a, b] \to M$ be a parameterization of a curve $C$, and suppose further that $\gamma'(t)$ is nonzero for all $t \in [a, b]$. We can specify the orientation of a curve by declaring one of its endpoints $p_0$ to be the "starting point"; we can then say that $\gamma$ is a "positive parameterization" of $C$ if $\gamma(a) = p_0$, and a "negative parameterization" of $C$ if $\gamma(b) = p_0$. This can be generalized to closed curves, but we will ignore those for now.
+
+An "oriented reparameterization" of a curve with parameterization $\gamma: [a, b] \to M$ is a smooth map $\phi: [c, d] \to [a, b]$ with $\phi(c) = a, \phi(d) = b$, and $\phi'(t) > 0$ for all $t$. Since its derivative is everywhere positive, it is monotonically increasing, and that plus smoothness implies it is a diffeomorphism. 
+
+Now we can prove the following: integrals are preserved under oriented reparameterizations. Proof: let $C$ be parameterized by $\gamma(t)$, and let $t = \phi(s)$ where $\phi$ is an oriented reparameterization. We can use the change-of-variables formula $\int_a^b f(t)dt = \int_c^d f(\phi(s))\frac{d\phi}{ds}ds$. Writing $\omega = f(t)dt$, we have $\phi^*\omega = f(\phi(s)) dt = f(\phi(s))d(\phi(s)) = f(\phi(s)) \frac{d\phi}{ds}ds$. We can then rewrite the change of variables formula as $\int_a^b \omega = \int_c^d \phi^*\omega$. 
+
+Now consider $\int_C \omega$. If we evaluate this using the parameterization $\gamma \circ \phi$ we get $\int_c^d (\gamma \circ \phi)^* \omega = \int_c^d \phi^*(\gamma^*\omega)$, using the chain rule for pullbacks from above. The change-of-variables formula says this is equal to $\int_a^b \gamma^*\omega$, which is $\int_C \omega$ evaluated using the parameterization $\gamma$. Thus changing the parameterization does not affect the value of the integral. 
+
+### Closed and Exact 1-Forms
+An 1-form $\omega$ is called *exact* if there exists a function $f$ with $\omega = df$. Integrals of exact 1-forms are special. We have $\int_C df = \int_a^b \gamma^*(df) = \int_a^b d(\gamma^*f) = \int_a^b d(f \circ \gamma) = \int_a^b \frac{d(f \circ \gamma)}{dt} dt = (f \circ \gamma)|_a^b = f(\gamma(b)) - f(\gamma(b))$. Thus, for exact 1-forms, we can simply apply the fundamental theorem of calculus. 
+
+If $\omega$ is exact on some open set $U$, $\omega = df$, then $f$ is unique up to a constant. Suppose that $\omega = df$ and $\omega = dg$; then let $c = g(x_0) - f(x_0)$, for some $x_0 \in U$. Now take another $x \in U$ and choose a path $C$ with $\gamma(a) = x_0, \gamma(b) = x$, and $\gamma'(t) \neq 0$ for all $t$. Then $\int_C df = f(x) - f(x_0)$, while $\int_C dg = g(x) - g(x_0)$; but $\int_C df = \int_C dg$< so $f(x) - f(x_0) = g(x) - g(x_0)$ for any $x$, or $f(x) - g(x) = f(x_0) - g(x_0) = c$. 
+
+$f$ is sometimes called a *potential* for $\omega$, as in physics. 
+
+Now we look for criteria implying that a given 1-form is exact. One way to do this is in coordinates. Let $\omega = \sum_i \omega_i(x) dx^i$ in some local coordinates $x^i$; then, if $\omega = df$, we have $\omega_i(x) = \pd{f}{x^i}$ Thus $\pd{\omega_i}{x^j} = \pd{^2 f}{x^i\partial x^j} = \pd{\omega_j}{x^i}$. This gives us one necessary condition for $\omega$ to be exact: we need $\pd{\omega_i}{x^j} = \pd{\omega_j}{x^i}$ for all $i, j$ in any coordinates. We call 1-forms satisfying this condition *closed*; thus any exact 1-form is closed. 
+#### Poincare Lemma
+There is a partial converse to this, given by the following theorem, a special case of the "Poincare lemma". Let $B(p, r)$ be a ball, either in $\R^n$ or in coordinates on some manifold. Then, on $U$, every closed 1-form is exact. Proof: without loss of generality we can, for convenience, let $p$ be the origin. For any point $x$ in the ball, consider the line $L$ from $0$ to $x$, parameterized by $\gamma(t) = tx$, and let $f(x) = \int_L  \omega$. Then $f(x) = \int_0^1 \sum_j \omega_j(tx)d(tx^j)$. Since $x^j$ is fixed we have $d(tx^j) = x^jdt$; thus $f(x) = \int_0^1 \sum_j \omega_j(tx) x^j dt$. Now we have $\pd{f}{x^i} = \int_0^1 \sum_j (\pd{\omega_j}{x^i}t x^j + \omega_j(tx)\pd{x^j}{x^i})dt = \int_0^1 \sum_j (\pd{\omega_j}{x^i}t x^j + \omega_j(tx)\delta_{ij})dt$, by differentiating under the integral sign and using the product rule. If we use the fact that $\omega$ is closed to turn $\pd{\omega_j}{x^i}$ into $\pd{\omega_i}{x^j}$, this works out to $\int_0^1 [(\sum_j t \pd{\omega_i}{x^j}x^j) + \omega_i(tx)]dt$. But this is equal to $\int_0^1 \frac{d}{dt}[t\omega_i(tx)]dt=t \omega_i(tx) |_0^1 = \omega_i(x)$. Thus $\omega = \sum \omega_i(x)dx = \sum \pd{f}{x^i}dx^i = df$, so $\omega$ is exact.
+
+The proof generalizes to any "star-shaped" set, i.e. any set such there exists a "central" point $p$ such that, for any other point $q$, the line segment from $p$ to $q$ is contained in the set. 
+
+In fact, we can generalize further. We can first prove that closedness and exactness are preserved when pulling back by diffeomorphisms, i.e. if $F$ is a diffeomorphism then $\omega$ is closed/exact if and only if $F^*\omega$ is closed/exact. ......
+
+It then follows that the Poincare lemma holds on any set which is diffeomorphic to a ball. 
+
+### Integrating Exact Forms
+Another important characterization of exact forms is that they are the forms whose integrals depend only on the position of the endpoints, or whose integrals around closed curves are $0$. More precisely, a form $\omega$ is exact if and only if $\int_{C_1}\omega = \int_{C_2}\omega$ where $C_1, C_2$ are any curves with the same endpoints (i.e. same start and same end, hence same orientation), or $\int_L \omega = 0$ for any closed curve or loop $L$. 
+
+Proof: the first implication follows from $\int_C \omega = \int_C df = f(b) - f(a)$ where $a, b$ are the endpoints of the curve; clearly this depends only on the endpoints, and will thus be the same for any curve with endpoints $a, b$. This implies that the integral about any loop is $0$: let $a$ be the start (and end) point of the loop, and let $b$ be any other point; then let $C_1$ be the section of the loop going from $a$ to $b$ (in the direction in which the loop is oriented), and let $C_2$ be the rest (going from $b$ to $a$). Then $\int_L \omega = \int_{C_1}\omega + \int_{C_2}\omega = (f(b) - f(a)) + (f(a) - f(b)) = (f(b) - f(b)) + (f(a) - f(a)) = 0$. Conversely, if the integral on a curve about any loop is $0$, then for any two curves $C_1, C_2$ between endpoints $a$ and $b$, consider $\int_{C_1}\omega + \int_{-C_2} \omega$, where we use $-C_2$ to represent $C_2$ with the opposite orientation (from $b$ to $a$). On one hand, this equals $\int_L\omega$, where $L$ is the closed curve obtained by concatenating $C_1$ and $C_2$, and by assumption this equals $0$. On the other hand, it equals $\int_{C_1}\omega - \int_{C_2}\omega$. Thus $\int_{C_1}\omega - \int_{C_2}\omega = 0$ or $\int_{C_1} \omega = \int_{C_2}\omega$. 
+
+The tricky part is showing that the second condition (integral depends only on endpoints) implies that $\omega$ is exact. First we will need the fact that any closed form is "locally exact"....
+
+....
+

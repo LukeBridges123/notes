@@ -6,7 +6,7 @@ The first condition for dynamic programming to apply (at least for optimization 
 
 An example of optimal substructure is found in the problem of finding the shortest path between two nodes $a, b$ in an (unweighted) graph, i.e. the path with the fewest edges. We can first make a choice of one other node $c$ that the solution must pass through. For any such $c$, the shortest path $p_{ab}$ from $a$ to $b$ passing through $c$ is just the shortest path $p_{ac}$ from $a$ to $c$, joined to the shortest path  $p_{cb}$ from $c$ to $b$. This is because, if $p_{ab}$ passed through $c$ but included, not $p_{ac}$, but some longer path $p_{ac}'$, you could shorten $p_{ab}$ by replacing $p_{ac}'$ with $p_{ac}$--contradicting the optimality of $p_{ac}$. Note also that optimally solving one subproblem won't affect how you solve the others, since the optimal sub-paths $p_{ac}, p_{cb}$ won't share any vertices besides $c$. (If the path went from a to d to c, then from c to d to b, we could cut out $c$ and just go from $a$ to $d$ to $b$, so either $c$ wasn't an optimal choice or one of $p_{ac}, p_{cb}$ isn't optimal.)
 
-Importantly, the subproblems should be "independent" in the sense that the choices you make in solving one subproblem don't change what options are available when solving other subproblems. In the above example, subproblems are independent because shortest sub-paths don't share edges--otherwise they wouldn't be the shortest sub-paths. If, however, we were looking for *longest* paths that don't share any edges, this property would no longer hold: it could be that the longest path from $a$ to $c$ has edges in common with the longest path from $c$ to $b$, in which case we don't have optimal substructure.
+Importantly, the subproblems should be "independent" in the sense that the choices you make in solving one subproblem don't change what options are available when solving other subproblems. In the above example, subproblems are independent because shortest sub-paths don't share edges--otherwise they wouldn't be the shortest sub-paths. If, however, we were looking for *longest* paths that don't share any edges, this property would no longer hold: it could be that the longest path from $a$ to $c$ has edges in common with the longest path from $c$ to $b$. In that case, we would no longer have optimal substructure: longest paths from $a$ to $b$ cannot, in general, be combined with longest paths from $c$ to $b$, so we cannot solve the longest-path problem by solving smaller instances of the same problem. 
 ### Overlapping Subproblems
 Optimal substructure is what makes dynamic programming possible: it's what we need in order to build solutions to large problems out of solutions to small ones. Overlapping subproblems are what makes dynamic programming faster than naive methods. 
 
@@ -18,9 +18,11 @@ Alternatively, you can use "top-down" methods, or "memoization": you can equip t
 
 The phrase "at most once" points to an interesting difference between top-down and bottom-up dynamic programming. Bottom-up dynamic programming tends to complete every subproblem possible, while top-down memoization only computes subproblems whose answers are actually needed. This property makes top-down better in some cases, though bottom-up is generally better due to the lack of overhead from recursion. 
 
-# Example Problems
+# Examples: Polynomial Time
 ## Longest Increasing Subsequence
 
-## Knapsack
-
 ## Edit Distance
+
+# Examples: NP-Hard Problems
+## Knapsack
+## Traveling Salesman
