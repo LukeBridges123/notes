@@ -1,0 +1,3 @@
+[[Dynamic Programming]] When dynamic programming can be used: optimal substructure and overlapping subproblems. General methods of dynamic programming: top-down vs. bottom-up. Example problems, including polynomial-time problems (largest increasing subsequence, edit distance) and NP-hard problems (knapsack, traveling salesman). 
+[[Sorting Algorithms]] Comparison-based sorting in quadratic time: selection sort, insertion sort, and bubble sort. In $n\log(n)$ time: mergesort, quicksort, and heapsort. Optimality of $n\log(n)$ algorithms for comparison-based sorting. Non-comparison-based sorting. 
+[[RSA]] 
