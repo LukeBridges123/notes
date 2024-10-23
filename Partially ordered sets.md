@@ -55,7 +55,6 @@ That the zeta function should have an inverse can be seen, at least in the case 
 $$\mu(x, y) = -\sum_{x \leq z < y}\mu(x, z)$$ with $\mu(x, x) = 1$. 
 
 Proof: we need to have $\mu\zeta = \delta$, so that $(\mu \cdot \zeta)(x, y) = 1$ when $x = y$, $0$ otherwise. That first condition gives you the boundary condition $\mu(x, x)$ = 1, since we need to have $(\mu \cdot \zeta)(x, x) = \sum_{x \leq z \leq x}\zeta(x, z)\mu(z, x) = \zeta(x, x)\mu(x, x)$ be 1 and $\zeta(x, x) = 1$. As for the recurrence, we know that when $x < y$, we have $0 = (\mu \cdot \zeta)(x, y) =  \sum_{x \leq z \leq y}\mu(x, z)\zeta(z, y) = \sum_{x \leq z < y}\mu(x, z)\zeta(z, y) + \mu(x, y)$, and then subtracting off the sum from both sides gives $\mu(x, y) = - \sum_{x \leq z < y}\mu(x, z)\zeta(z, y)$, as desired. 
-
 A variant of this is: $\mu(x, y) = -\sum_{x < z \leq y}\mu(z, y)$, which has a closely analogous proof using instead the fact that $(\zeta \cdot \mu)(x, y) = 0$ (i.e. that $\mu$ is a right inverse of $\zeta$, while the first proof used the fact that $\mu$ is a left inverse of $\zeta$).
 #### Examples
 ##### Nonnegative integers with the standard order

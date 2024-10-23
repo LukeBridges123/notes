@@ -1,0 +1,2 @@
+# Discrete Fourier Transform
+First we explain what it is that the FFT computes, namely the *discrete Fourier transform* of a sequence of numbers. Recall that the Fourier transform $\hat{f}$ of a function is given by $\hat{f}(x) = \int_{-\infty}^\infty f(t)e^{-2\pi xt}dt$ 
