@@ -30,7 +30,6 @@ def insertion_sort(arr):
 The worst case for insertion sort happens when the list is in reverse order. This means that element $j+1$ is less than all of the elements before it, so when we handle it, we have to put it at the start of the sorted sublist, which takes $j+1$ swaps. This means we need $1 + 2 + \dots + j + \dots + n$ swaps, or $O(n^2)$. 
 
 On the other hand, when the list is already sorted, we don't have to do any swaps at all. At each step, we notice that the $j+1$ element is already greater than the $j$ element, hence the first $j+1$ elements are already in sorted order, and so we can move onto the next iteration. We still have to do $O(n)$ comparisons, for $O(n)$ steps total. This sort of reasoning generalizes to cases where the list is "almost sorted", with only a few elements out of order. If we assume, for instance, that the number of elements out of order is some fixed number $C$ independent of $n$, then insertion sort will only take $O(Cn) = O(n)$ steps. Thus, if a list is "almost sorted", insertion sort can often beat asymptotically faster algorithms like quicksort. Empirically, insertion sort often does better on small lists ($n < 5$, say) than the standard $O(n\log(n))$ algorithms, so those $n\log(n)$ algorithms can often be sped up by turning them into "hybrid sorts": on the recursive step (where you would ordinarily call, say, mergesort on a smaller sublist), call insertion sort instead if the sublist is small enough.
-### Bubble Sort
 ## O(nlog(n)) Algorithms
 
 ### Mergesort

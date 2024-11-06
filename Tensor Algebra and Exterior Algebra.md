@@ -9,8 +9,6 @@ The space of all bilinear forms is the direct sum of the space $\operatorname{Sy
 We can transfer these ideas to the more general setting of k-linear forms. A symmetric form is defined as one which is invariant under interchanges of arguments, $f(v_1, \dots, v_i, \dots, v_j, \dots, v_k) = f(v_1, \dots, v_j, \dots, v_i, \dots, v_k)$ for any possible transposition. Since we can build any permutation out of transpositions, this implies that a symmetric form is invariant under any permutation of its arguments. A skew-symmetric form is defined in much the same way, except that interchanging two of its arguments multiplies the result by $-1$. In that case applying an even permutation to the arguments leaves it the same, while applying an odd permutation changes its sign. Once again we can define projections $S$ and $A$ from the set of all k-linear forms to the sets of symmetric and skew-symmetric k-linear forms. For $S$, we have $(Sf)(v_1, \dots, v_k) = \frac{1}{k!}\sum_\sigma f(v_{\sigma(1)}, \dots, v_{\sigma(k)})$ where the index ranges over all permutations of $\{1, \dots, k\}$. Similarly we have $(Af)(v_1, \dots, v_k) = \frac{1}{k!}\sum_\sigma \operatorname{sign}(\sigma)f(v_{\sigma(1)}, \dots, v_{\sigma(k)})$. 
 
 Our result about decomposing bilinear forms into symmetric and skew-symmetric parts does not transfer over to general $k$-forms, however.
-
-....
 ## Tensor Product of Multilinear Forms
 The simplest way to combine two multilinear forms, say a $p$-linear form and a $q$-linear form, into a $p+q$-linear form, is the *tensor product*. If $f, g$ are two such forms, we define $(f \otimes g)(v_1, \dots, v_{p+q}) = f(v_1, \dots, v_p)g(v_{p+1}, \dots, v_{p+q})$. This is then linear in each argument: letting $1 \leq i \leq p$, for example, we have $(f \otimes g)(v_1, \dots, av_i + bw_i, \dots, v_{p+q}) = f(v_1, \dots, av_i + bw_i , \dots, v_p)g(v_{p+1}, \dots, v_{p+q})$ = $(af(v_1, \dots, v_i, \dots, v_p) + bf(v_1, \dots, w_i, \dots, v_p))g(v_{p+1}, \dots, v_{p+q})$ = $af(v_1, \dots, v_i, \dots, v_p)g(v_{p+1}, \dots, v_{p+q}) + bf(v_1, \dots, w_i, \dots, v_p)g(v_{p+1}, \dots, v_{p+q})$ = $a(f \otimes g)(v_1, \dots, v_i, v_{p+q}) + b(f \otimes g)(v_1, \dots, w_i, \dots, v_{p+q})$. Obviously the same proof will work when $p+1 \leq i \leq p+q$. Thus the tensor product indeed gives us a $p+q$-linear form.  
 
@@ -30,5 +28,29 @@ For anticommutativity, we want to prove $\frac{1}{p!q!}\ol{A}(f \otimes g) = \fr
 
 For associativity ... 
 
-We can now justify the $\wedge^k (V^*)$ notation for the space of alternating $k$-forms....we can also arbitrarily declare $\wedge^0 (V^*) = \R$, and then define the "Grassman algebra" or "exterior algebra" $\wedge^* (V^*) = \oplus_{k=0}^n \wedge^K (V^*)$. This is then an associative algebra which contains $\R$ and $V^*$ in a natural way
+We can now justify the $\wedge^k (V^*)$ notation for the space of alternating $k$-forms....we can also arbitrarily declare $\wedge^0 (V^*) = \R$, and then define the "Grassman algebra" or "exterior algebra" $\wedge^* (V^*) = \oplus_{k=0}^n \wedge^K (V^*)$. This is then an associative algebra which contains $\R$ and $V^*$ in a natural way....
+
+## Basis for the Exterior Algebra
+Let $e_1, \dots, e_n$ be a basis for $V$, and let $e^1, \dots, e^n$ be the corresponding dual basis. Then the set of all alternating $p$-forms of the form $e^{i_1} \wedge \dots \wedge e^{i_p}$, with $i_1 < \dots < i_p$, is a basis of $\wedge^p (V^*)$. 
+
+For example, $e^1 \wedge e^2, e^2 \wedge e^3, e^1 \wedge e^3$ is a basis of $\wedge^2 (\R^3)^*$. 
+
+Proof: for linear independence, say that $0 = \sum a_I e^I$ where the sum is taken over all  ascending multiindices $I = (i_1, \dots, i_p)$. Take some other multiindex $J = (j_1, \dots, j_p)$ and evaluate this on $e_J$. Note that $e^Ie_J = e^{i_1}(e_{j_1}) \cdots e^{i_p}(e_{j_p}) = \delta^{i_1}_{j_1} \cdots \delta^{i_p}_{j_p}$, which is $1$ only when $I = J$. Thus $0(e_J) = (\sum a_I e^I)(e_J) = a_J$, so $a_J = 0$. 
+
+To show that these span $\wedge^p (V^*)$, given a $p$-form $\omega$, consider $\sum_I \omega(e_I)e^I$. Evaluating this at $e_J$ gets $\omega(e_J)$, so this sum agrees with $\omega$ on all ascending $p$-tuples of basis vectors. This then implies that it agrees on all $p$-tuples of basis vectors, by the alternating property, and multilinearity implies that the sum takes the same values as $\omega$ on all $p$-tuples of vectors. Thus $\omega$ is a linear combination of the $e^I$. 
+### Dimension of The Exterior Algebra
+Since there are $\binom{n}{p}$ ascending multiindices $1 \leq i_1 < \dots i_p \leq n$, there are $\binom{n}{p}$ elements in the standard basis of $\wedge^p (V^*)$ where $V$ is an $n$-dimensional vector space. For $p > n$, there are no nonzero elements of $\wedge^p (V^*)$.  The entire exterior algebra $\wedge^* (V^*)$ has $\sum_p \binom{n}{p} = 2^n$ elements in its basis. 
+
+(N.B. in the following, to save on asterisks, we abuse notation slightly and identify $V^*$ with $V$.) We can extend any linear map $L: V \to W$ to a unique linear map $L': \wedge^*(V) \to \wedge^*(W)$ with the following properties: $L' = I$ on $\wedge^0(V)$ (which is $\R$), $L' = L$ on $\wedge^1(V)$ (which is $V$), and $L'$ is an algebra homomorphism, i.e. $L'(x \wedge y) = L'(x) \wedge L'(y)$ for all $x, y$.
+
+FIX LATER 
+
+Proof: we just define $L'(1) = 1, L'(e^1 \wedge \dots \wedge e^n) = L(e^1) \wedge \dots \wedge L(e^n)$, and extend by linearity. To show that it is an algebra homomorphism, for any wedge product $a \wedge b$ we have $a = \sum_I a_Ie^I$ and $b = \sum_J b_Je^J$ where $I, J$ range over the multiindices of the right length. Then $L'(a \wedge b) = \sum_{I, J} a_Ib_J L'(e^I \wedge e^J)$ by linearity. But $L'(e_I \wedge e_J) = L(e^I) \wedge L(e^J)$ (applying $L$ to each basis vector individually)..... which is then equal to $L'(a) \wedge L'(b)$. Thus $L'$ ....
+
+Note that $\wedge^n(V^*)$ has dimension $1$; all alternating $n$-forms are scalar multiples of the determinant. 
+
+## Interior Multiplication
+Interior multiplication or "contraction" is an operation that takes k-linear forms to (k-1)-linear forms. For any vector $v$ and $k$-form $\omega(v_1, \dots, v_k)$, we define the interior multiplication of $\omega$ by $v$, $i_v(\omega)$, by $i_v(\omega)(v_1, \dots, v_{k-1}) = \omega(v, v_1, \dots, v_{k-1})$. In the special case of a $0$-form we define $i_v(\omega) = 0$, and for a $1$-form we define $i_v(\omega) = \omega(v)$.
+
+We note (prove later) that interior multiplication is nilpotent ($i_v \circ i_v = 0$) and is a skew-derivation, $i_v(\omega \wedge \nu) = i_v(\omega) \wedge \nu + (-1)^k \omega \wedge i_v(\nu)$, where $\omega$ is a k-form. 
 

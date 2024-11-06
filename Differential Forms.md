@@ -19,9 +19,9 @@ Cotangent vectors define linear maps from $T_pM$ to $\R$; 1-forms define linear 
 Similarly, linear maps in the sense above define 1-forms on $M$. Given $\phi$ with the properties above and local coordinates $x^i$, define functions $\omega_i$ by $\omega_i = \phi(\frac{\partial}{\partial x^i})$, and a 1-form (on $U$) $\omega$ as $\sum_i \omega_i dx^i$. Then for each $X = \sum_k X^k \frac{\partial}{\partial x^k}$, we have $\omega(X) = \sum_i \sum_k \omega_i X^k dx^i (\frac{\partial}{\partial x^k})= \sum_i \sum_j \omega_i X^k \delta_{ik}=\sum_i X^i \omega_i$. This in turn is equal to $\sum_i X^i \phi(\frac{\partial}{\partial x^i})$. The $X^i$ are smooth functions, and we assumed that $\phi$ is $C^\infty(M)$-linear, so we get $\phi(\sum_i X^i \frac{\partial}{\partial x^i}) = \phi(X)$. All this was in a single coordinate patch, but in fact it defines a unique map on that coordinate patch, and this uniqueness implies coordinate independence--doing the same procedure with a different basis would give us the same map. This then implies that everything works fine on the overlaps between charts, so we have a 1-form $\omega$ defined on all of $M$. 
 
 ## Differentials as 1-Forms
-Recall that the differential of a function $M \to \R$ is defined by $df(X) = Xf$. This is $C^\infty(M)$-linear since $df(aX + bY) = (aX + bY)f = adf(X) + bdf(Y)$ and $df(gX) = (gX)f = g(Xf) = gdf(X)$ for all $a, b \in \R$ and $g \in C^\infty(M)$. The result above then implies that $df$ is a 1-form.
+Recall that the differential of a function $M \to \R$ is defined by $(df)_p(X_p) = X_p(f)$. (Strictly speaking it should be $X_p(f) \cdot \frac{d}{dt}$, but we use the identification between $\R$ and its tangent space.) This is $C^\infty(M)$-linear since $df(aX + bY) = (aX + bY)f = adf(X) + bdf(Y)$ and $df(gX) = (gX)f = g(Xf) = gdf(X)$ for all $a, b \in \R$ and $g \in C^\infty(M)$. The result above then implies that $df$ is a 1-form.
 
-We can then write $df$ in the basis $dx^i$ given by local coordinates. If $f: \R^n \to \R$ is a smooth function then $df(\frac{\partial}{\partial x^i}) = \frac{\partial}{\partial x^i}f = \frac{\partial f}{\partial x^i}$. Thus $df = \sum_i \frac{\partial f}{\partial x^i}dx^i$. 
+We can then write $df$ in the basis $dx^i$ given by local coordinates $x^i$. If $f: \R^n \to \R$ is a smooth function then $df(\frac{\partial}{\partial x^i}) = \frac{\partial}{\partial x^i}f = \frac{\partial f}{\partial x^i}$. Thus $df = \sum_i \frac{\partial f}{\partial x^i}dx^i$. 
 
 For example, $d(x^3) = 3x^2 dx$; $d(e^{xy}) = ye^{xy}dx + xe^{xy}dy = (e^{xy})(ydx + xdy)$; and so on for any function $\R^n \to \R$. Differentiating a coordinate function $x^i$ gets us a basic 1-form $dx^i$, defined by $dx^i (X)= X(x^i)$; so, for example, $dx^i (\frac{\partial }{\partial x^k}) = \delta_{ik}$. Thus the differentials of the $x^i$ are the dual basis to the basis $\frac{\partial}{\partial x^i}$ of the tangent space, justifying our use of $dx^i$ for the dual basis vectors earlier. 
 
@@ -40,51 +40,70 @@ Some of the most commonly useful properties of 1-forms, the $d$ operator, and th
 
 (a) and (c) follow from our earlier results....
 
-## Integrating 1-Forms
-....
-....
-....
-Formally, we define integration of a 1-form as follows. Given a curve $C$, choose a parameterization $\gamma: [a, b]$. Pull back the 1-form by $\gamma$ to get a 1-form on $\R$, $\gamma^*\omega = f(t)dt$ for some function $f(t)$. The integral of $\omega$ over $c$ is then defined as $\int_a^b f(t)dt$. 
 
-For example, let $\omega = xydx + \frac{x^2}{2}dy$ and consider integrating it on the section of the parabola $y=x^2$ from $(0, 0)$ to $(2, 4)$. We first parameterize the curve by $\gamma(t) = (t, t^2)$ with $t \in [0, 2]$. Then $\gamma^*\omega = t \cdot t^2 dt + \frac{t^2}{2}d(t^2) = t^3 dt + \frac{t^2}{2} \cdot 2t \cdot dt = 2t^3 dt$. We then have $\int_C \omega = \int_0^2 2t^3 = \frac{t^4}{2}|^2_0 = 8$. 
-
-### Invariance Under Reparameterizations
-In order for this definition in terms of parameterizations to make sense, we need the integral to not depend too much on parameterizations. We can reasonably expect that the direction or orientation of the parameterization matters: this is the case even when integrating functions, where $\int_a^b f(x)dx = -\int_b^a f(x)dx$. To formalize this, let $\gamma: [a, b] \to M$ be a parameterization of a curve $C$, and suppose further that $\gamma'(t)$ is nonzero for all $t \in [a, b]$. We can specify the orientation of a curve by declaring one of its endpoints $p_0$ to be the "starting point"; we can then say that $\gamma$ is a "positive parameterization" of $C$ if $\gamma(a) = p_0$, and a "negative parameterization" of $C$ if $\gamma(b) = p_0$. This can be generalized to closed curves, but we will ignore those for now.
-
-An "oriented reparameterization" of a curve with parameterization $\gamma: [a, b] \to M$ is a smooth map $\phi: [c, d] \to [a, b]$ with $\phi(c) = a, \phi(d) = b$, and $\phi'(t) > 0$ for all $t$. Since its derivative is everywhere positive, it is monotonically increasing, and that plus smoothness implies it is a diffeomorphism. 
-
-Now we can prove the following: integrals are preserved under oriented reparameterizations. Proof: let $C$ be parameterized by $\gamma(t)$, and let $t = \phi(s)$ where $\phi$ is an oriented reparameterization. We can use the change-of-variables formula $\int_a^b f(t)dt = \int_c^d f(\phi(s))\frac{d\phi}{ds}ds$. Writing $\omega = f(t)dt$, we have $\phi^*\omega = f(\phi(s)) dt = f(\phi(s))d(\phi(s)) = f(\phi(s)) \frac{d\phi}{ds}ds$. We can then rewrite the change of variables formula as $\int_a^b \omega = \int_c^d \phi^*\omega$. 
-
-Now consider $\int_C \omega$. If we evaluate this using the parameterization $\gamma \circ \phi$ we get $\int_c^d (\gamma \circ \phi)^* \omega = \int_c^d \phi^*(\gamma^*\omega)$, using the chain rule for pullbacks from above. The change-of-variables formula says this is equal to $\int_a^b \gamma^*\omega$, which is $\int_C \omega$ evaluated using the parameterization $\gamma$. Thus changing the parameterization does not affect the value of the integral. 
-
-### Closed and Exact 1-Forms
-An 1-form $\omega$ is called *exact* if there exists a function $f$ with $\omega = df$. Integrals of exact 1-forms are special. We have $\int_C df = \int_a^b \gamma^*(df) = \int_a^b d(\gamma^*f) = \int_a^b d(f \circ \gamma) = \int_a^b \frac{d(f \circ \gamma)}{dt} dt = (f \circ \gamma)|_a^b = f(\gamma(b)) - f(\gamma(b))$. Thus, for exact 1-forms, we can simply apply the fundamental theorem of calculus. 
-
-If $\omega$ is exact on some open set $U$, $\omega = df$, then $f$ is unique up to a constant. Suppose that $\omega = df$ and $\omega = dg$; then let $c = g(x_0) - f(x_0)$, for some $x_0 \in U$. Now take another $x \in U$ and choose a path $C$ with $\gamma(a) = x_0, \gamma(b) = x$, and $\gamma'(t) \neq 0$ for all $t$. Then $\int_C df = f(x) - f(x_0)$, while $\int_C dg = g(x) - g(x_0)$; but $\int_C df = \int_C dg$< so $f(x) - f(x_0) = g(x) - g(x_0)$ for any $x$, or $f(x) - g(x) = f(x_0) - g(x_0) = c$. 
-
-$f$ is sometimes called a *potential* for $\omega$, as in physics. 
-
-Now we look for criteria implying that a given 1-form is exact. One way to do this is in coordinates. Let $\omega = \sum_i \omega_i(x) dx^i$ in some local coordinates $x^i$; then, if $\omega = df$, we have $\omega_i(x) = \pd{f}{x^i}$ Thus $\pd{\omega_i}{x^j} = \pd{^2 f}{x^i\partial x^j} = \pd{\omega_j}{x^i}$. This gives us one necessary condition for $\omega$ to be exact: we need $\pd{\omega_i}{x^j} = \pd{\omega_j}{x^i}$ for all $i, j$ in any coordinates. We call 1-forms satisfying this condition *closed*; thus any exact 1-form is closed. 
-#### Poincare Lemma
-There is a partial converse to this, given by the following theorem, a special case of the "Poincare lemma". Let $B(p, r)$ be a ball, either in $\R^n$ or in coordinates on some manifold. Then, on $U$, every closed 1-form is exact. Proof: without loss of generality we can, for convenience, let $p$ be the origin. For any point $x$ in the ball, consider the line $L$ from $0$ to $x$, parameterized by $\gamma(t) = tx$, and let $f(x) = \int_L  \omega$. Then $f(x) = \int_0^1 \sum_j \omega_j(tx)d(tx^j)$. Since $x^j$ is fixed we have $d(tx^j) = x^jdt$; thus $f(x) = \int_0^1 \sum_j \omega_j(tx) x^j dt$. Now we have $\pd{f}{x^i} = \int_0^1 \sum_j (\pd{\omega_j}{x^i}t x^j + \omega_j(tx)\pd{x^j}{x^i})dt = \int_0^1 \sum_j (\pd{\omega_j}{x^i}t x^j + \omega_j(tx)\delta_{ij})dt$, by differentiating under the integral sign and using the product rule. If we use the fact that $\omega$ is closed to turn $\pd{\omega_j}{x^i}$ into $\pd{\omega_i}{x^j}$, this works out to $\int_0^1 [(\sum_j t \pd{\omega_i}{x^j}x^j) + \omega_i(tx)]dt$. But this is equal to $\int_0^1 \frac{d}{dt}[t\omega_i(tx)]dt=t \omega_i(tx) |_0^1 = \omega_i(x)$. Thus $\omega = \sum \omega_i(x)dx = \sum \pd{f}{x^i}dx^i = df$, so $\omega$ is exact.
-
-The proof generalizes to any "star-shaped" set, i.e. any set such there exists a "central" point $p$ such that, for any other point $q$, the line segment from $p$ to $q$ is contained in the set. 
-
-In fact, we can generalize further. We can first prove that closedness and exactness are preserved when pulling back by diffeomorphisms, i.e. if $F$ is a diffeomorphism then $\omega$ is closed/exact if and only if $F^*\omega$ is closed/exact. ......
-
-It then follows that the Poincare lemma holds on any set which is diffeomorphic to a ball. 
-
-### Integrating Exact Forms
-Another important characterization of exact forms is that they are the forms whose integrals depend only on the position of the endpoints, or whose integrals around closed curves are $0$. More precisely, a form $\omega$ is exact if and only if $\int_{C_1}\omega = \int_{C_2}\omega$ where $C_1, C_2$ are any curves with the same endpoints (i.e. same start and same end, hence same orientation), or $\int_L \omega = 0$ for any closed curve or loop $L$. 
-
-Proof: the first implication follows from $\int_C \omega = \int_C df = f(b) - f(a)$ where $a, b$ are the endpoints of the curve; clearly this depends only on the endpoints, and will thus be the same for any curve with endpoints $a, b$. This implies that the integral about any loop is $0$: let $a$ be the start (and end) point of the loop, and let $b$ be any other point; then let $C_1$ be the section of the loop going from $a$ to $b$ (in the direction in which the loop is oriented), and let $C_2$ be the rest (going from $b$ to $a$). Then $\int_L \omega = \int_{C_1}\omega + \int_{C_2}\omega = (f(b) - f(a)) + (f(a) - f(b)) = (f(b) - f(b)) + (f(a) - f(a)) = 0$. Conversely, if the integral on a curve about any loop is $0$, then for any two curves $C_1, C_2$ between endpoints $a$ and $b$, consider $\int_{C_1}\omega + \int_{-C_2} \omega$, where we use $-C_2$ to represent $C_2$ with the opposite orientation (from $b$ to $a$). On one hand, this equals $\int_L\omega$, where $L$ is the closed curve obtained by concatenating $C_1$ and $C_2$, and by assumption this equals $0$. On the other hand, it equals $\int_{C_1}\omega - \int_{C_2}\omega$. Thus $\int_{C_1}\omega - \int_{C_2}\omega = 0$ or $\int_{C_1} \omega = \int_{C_2}\omega$. 
-
-The tricky part is showing that the second condition (integral depends only on endpoints) implies that $\omega$ is exact. First we will need the fact that any closed form is "locally exact"....
-
-....
 
 # K-Forms
 .....
 .....
 ## Integrating over Surfaces
 As motivation for how we're going to generalize 1-forms to higher dimensions, consider integrating some object $\phi$ over a surface. (What this object is, we will see as we go along.) As with 1-forms, we parameterize our surface by $\gamma(s, t)$; at each point we get tangent vectors $S = \gamma_*(\pd{}{s}), T = \gamma_*(\pd{}{t})$. 
+
+.....
+
+## Definition of a K-Form
+....
+something about constructions with the tangent and cotangent bundles
+....
+
+....
+We then get the *exterior algebra bundle* $\wedge^* (T^*M)$, which assigns, to each point, the exterior algebra on the cotangent space at that point. As with 1-forms, we can get a local trivialization of this bundle by choosing local coordinates and writing all the elements of the exterior algebra in that basis. 
+
+Sections of the bundle $\wedge^k (T^*M)$ are called differential $k$-forms. The set of all $p$-forms is denoted $\Omega_M^p$, and the set of all sections of the whole exterior algebra bundle is denoted $\Omega_M^*$. 
+
+Much like the different ways to think of vector fields and 1-forms, general k-forms can be thought of in the following ways: sections of $\wedge^k(T^*M)$; as alternating multilinear maps on $p$-tuples of vector fields, $X(M) \times \dots \times X(M) \to C^\infty(M)$, which are $C^\infty(M)$-linear; and locally, like linear combinations of basic forms $dx^I$. 
+
+## Operations on Forms
+### Wedge Product
+The wedge product on alternating forms can be extended into an operation on differential forms. That is, we have an operation $\wedge: \Omega_M^p \times \Omega_M^q \to \Omega_M^{p+q}$ which has all the properties of the wedge product on alternating forms: bilinearity, antisymmetry, etc. We do this by just taking the wedge product pointwise, $(\omega \wedge \eta)_p = \omega_p \wedge \eta_p$. 
+### Pullback
+We can also pull back differential forms by functions. Let $F: M \to N$ and let $\omega$ be a $p$-form on $n$. Then we can get a $p$-form on $M$, $F^*\omega$, defined in the following way.
+
+For 0-forms (scalar-valued functions), we define it like before, $F^* f = f \circ F$. 
+
+For exact 1-forms $df$, we again define it like before, $F^*(df) = d(F^* f) = d(f \circ F)$. 
+
+For a wedge product $F^*(\omega_1 \wedge \dots \wedge \omega_p)$, we pull back each "factor" individually, $F^*\omega_1 \wedge \dots \wedge F^*\omega_p$. 
+
+Finally, for arbitrary forms, we write them in a basis as a sum of wedge products of exact 1-forms, and then pull back each term, using the linearity of the pullback. 
+
+### Exterior Derivative
+The exterior derivative $d$ generalizes the differential operator on scalar functions to an operaton on differential forms. We can characterize it axiomatically as follows: $d$ is a linear map $\Omega_M^p \to \Omega_M^{p+1}$ such that: 
+
+(a) on 1-forms, $d$ acts like the differential, so $d$ applied to $f$ is the 1-form $df$, defined as usual so that $df(X) = Xf$
+
+(b) $d$ is a skew-derivation: $d(\omega \wedge \nu) = d\omega \wedge \nu + (-1)^p \omega \wedge d\nu$, where $\omega$ is a p-form
+
+(c) $d$ is nilpotent: $d \circ d = 0$. 
+
+There is a unique linear map satisfying all of these properties. 
+
+Proof: note first that we only need to prove this in a single local coordinate system. Once we know it exists and, importantly, is unique on some chart $U$, standard arguments then show that $d$ is defined and works the same on the rest of the manifold. 
+
+For any $p$-form $\omega$, write $\omega = \sum_I \omega_I(x) dx^I$. Then, whatever $d$ is, we must have $d\omega = \sum_I d(\omega_I(x) \wedge dx^I) = d(\omega_I(x)) \wedge dx^I + \omega_I(x) \wedge d(dx^I)$. That last term expands out into a bunch of terms, all of which have a factor of the form $d(dx^i)$; but that is $0$ (by the nilpotence of $d$) and so $d(dx^I) = 0$. Thus $d\omega  = \sum_I d\omega_I(x) \wedge dx^I$. We can then expand that out explicitly using the properties of the differential of a scalar function.
+
+This whole argument shows uniqueness: we can get $d\omega  = \sum_I d\omega_I(x) \wedge dx^I$ just by applying the axioms, so anything that satisfies the axioms must have that value. 
+
+To show existence, we can just define $d\omega$ by the formula we found above. We can then check that all the axioms hold. 
+
+### Interior Multiplication
+The contraction/interior multiplication operation on multilinear forms extends to an operation on differential forms: we define $(i_X(\omega))_p = i_{X_p}(\omega_p)$ for a vector field $X$, differential form $\omega$, and point $p$. 
+
+The basic properties of interior multiplication--that it is a skew-derivation whose square is $0$--carry over to differential forms. We then also have that $i_X(\omega)$ is $C^\infty(M)$-linear in both arguments, and in particular that $i_{fX}(\omega) = fi_X(\omega)$ and $i_X(f\omega) = fi_X(\omega)$ for any smooth function $f$.
+### Lie Derivative
+The Lie derivative of a form in the direction of a vector field, $L_X(\omega)$, is defined in essentially the same way as the Lie derivative of a vector field, namely $\frac{d}{dt}F_{-t}^*(\omega_p)$ where $F_t$ is the flow generated by $X$. The Lie derivative of a k-form is another k-form.
+
+This is then a derivation, i.e. it is linear with respect to $\omega$ and obeys the product rule $L_X(\omega \wedge \eta) = L_X\omega \wedge \eta + \omega \wedge L_X\eta$. It also commutes with the exterior derivative, $L_X(d\omega) = dL_X(\omega)$. 
+
+These rules suffice to compute Lie derivatives of any forms given in coordinates. For a 0-form/scalar function $f$ we have $L_X(f) = Xf$. For a basic 1-form $dx^i$ we have $L_X(dx^i) = d(L_X(x^i)) = d(Xx^i)$. For a more general 1-form $\sum_i f_i dx^i$, linearity lets us compute this by computing $L_X(f_idx^i)$ individually for each $i$; the fact that $L_X$ is a derivation then makes this equal to $L_X(f_i)dx^i + f_iL_X(dx^i)$, which we already know how to handle. Finally, for $k$-forms, we use linearity and then the product rule for derivations to reduce the problem to taking Lie derivatives of 1-forms.
+
+Some further results about Lie derivatives are Cartan's formula $L_X = di_X + i_Xd$, where $i$ is the interior multiplication operator, and.....
