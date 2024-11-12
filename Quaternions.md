@@ -1,0 +1,43 @@
+# Approaches to the Quaternions
+Fundamentally, the quaternions are a 4-dimensional real vector space with a multiplication operation that gives it all the properties of a field except commutativity of multiplication, and which is such that the norm $||(a, b, c, d)|| = \sqrt{a^2 + b^2 + c^2 + d^2}$ is multiplicative, $||p \cdot q|| = ||p|| \cdot ||q||$. There are a few equivalent ways to find this operation, each of which makes certain properties easy to derive. 
+## Adjoining Elements
+The complex numbers can be defined by adjoining a new element $i$ to $\R$ and considering formal linear combinations of powers of $i$, subject to the relation $i^2 = -1$. All of the basic properties of complex numbers--that they form a field, that any complex number has the form $a + bi$, etc.--can be derived from this beginning.
+
+The quaternions can be similarly defined by adjoining elements $i, j, k$ to $\R$ and specifying a few rules for multiplying the new elements. We have $i^2 = j^2 = k^2 = -1$, along with the "cyclic" identities $ij = k, jk = i, ki = j$ (which can be replaced with the single equation $ijk = -1$). From these we can derive rules for multiplying any of the new elements; for example, starting with $ij = k$, we get $i^2j = ik$ or $ik = -j$. Similarly $ji = -k$ and $kj = -i$, so multiplication of the new elements is "anticommutative". From there we can reduce any product of many copies of $i, j, k$ to real-number multiples of a single $i, j, k$, which then gives us the form of an arbitrary quaternion, $a + bi + cj + dk$. Two quaternions in this form can be multiplied by expanding out via distributivity and then applying the rules above; we get $(a + bi + cj + dk)(\alpha + \beta i + \gamma j + \delta k) =$ $(a\alpha - b\beta - c\gamma - d\delta) + (a\beta + b\alpha + c \delta - d \gamma)i + (a\gamma - b\delta + c\alpha + d\beta)j + (a\delta + b\gamma -c\beta + d\alpha)k$.  Thus we have a rule for multiplying elements of $\R^4$, and all the properties mentioned at the beginning of this section can be derived from it.
+## Quaternions as Matrices
+Just like how a complex number $a + bi$ can be represented by a $2 \times 2$ real matrix $\MatrixTwoTwo{a}{b}{-b}{a}$, a quaternion can be represented by a $2 \times 2$ complex matrix $\MatrixTwoTwo{z}{w}{-\ol{w}}{\ol{z}}$ where the quaternion $a + bi + cj + dk$ corresponds to the matrix with $z = a + bi, w = c + di$. We can just define quaternions to be matrices of this form, and define the sum and product of quaternions to be the sum and product of the matrices. It then follows that the quaternions form a vector space over the real numbers, and that the quaternion product is associative and distributes over addition. 
+
+To see that this definition lines up with the one given in the previous section, we use the "Pauli matrices" or "Cayley matrices", $1 = \MatrixTwoTwo{1}{0}{0}{1}, i = \MatrixTwoTwo{i}{0}{0}{-i}, j = \MatrixTwoTwo{0}{1}{-1}{0}, k = \MatrixTwoTwo{0}{i}{i}{0}$. These form a basis for the space of quaternions, since an arbitrary quaternion $\MatrixTwoTwo{z}{w}{-\ol{w}}{\ol{z}} = \MatrixTwoTwo{a + bi}{c + di}{-c + di}{a - bi}$ can be written $a1 + bi + cj + dk$, and this representation is clearly unique. They also obey the identities $ij = k, jk = i,$ etc. so the algebra of these matrices is isomorphic to the algebra of quaternions in the sense above. 
+
+In this representation, the norm of a quaternion is simply the square root of the determinant of the matrix, since $\det \MatrixTwoTwo{a + bi}{c + di}{-c + di}{a - bi} = (a + bi)(a - bi) - (c + di)(-c + di) = a^2 + b^2 - (-c^2 - d^2) = a^2 + b^2 + c^2 + d^2$. This immediately implies that the norm is multiplicative, since if $p, q$ are quaternions we have $||pq||^2 = \det(pq) = \det(p)\det(q) = ||p||^2 \cdot ||q||^2$. 
+
+## Cayley-Dickson Construction
+
+...
+
+# Properties of Quaternions
+Here we collect the properties of quaternions mentioned in the previous section and cover some new ones.
+## Quaternions as an Algebra
+First, the quaternions are a 4-dimensional associative algebra over $\R$--that is, a 4-dimensional vector space over $\R$ with a product operation which is bilinear and associative. The fact that they are a 4-dimensional real vector space follows from the matrix construction, with the Cayley matrices as a basis. The properties of matrix multiplication imply bilinearity and associativity of the quaternion product. Explicitly, in the basis given by the Cayley matrices, quaternion addition is just vector addition, and multiplication is given by $(a + bi + cj + dk)(\alpha + \beta i + \gamma j + \delta k) =$ $(a\alpha - b\beta - c\gamma - d\delta) + (a\beta + b\alpha + c \delta - d \gamma)i + (a\gamma - b\delta + c\alpha + d\beta)j + (a\delta + b\gamma -c\beta + d\alpha)k$. 
+
+If we add in the norm and its properties, along with the existence of multiplicative inverses (see below), we get that the quaternions form a *normed division algebra over $\R$*.
+## Multiplicative Norm
+Second, if we equip the quaternions with the norm $||a + bi + cj + dk|| = \sqrt{a^2 + b^2 + c^2 + d^2}$, this norm has (besides the defining properties of a norm) the multiplicative property $||pq|| = ||p|| \cdot ||q||$. As discussed above, this follows from the fact that, in the matrix construction, the determinant of a quaternion (as a matrix) is the square of its norm. 
+## Conjugation
+The quaternions have a unary operator analogous to the complex conjugate. If $q = a + bi + cj + dk$, we define its conjugate $\ol{q}$ to be $a - bi - cj - dk$. Several properties of complex conjugation carry over: it is $\R$-linear ($\ol{ap + bq} = a\ol{p} + b\ol{q}$ where $a, b$ are real), multiplicative $(\ol{pq} = \ol{p}\ol{q}$), and an involution ($\ol{\ol{q}} = q$). Furthermore, $q\ol{q} = \ol{q}q = ||q||^2$. For the last fact, we can calculate $q\ol{q} = (a + bi + cj + dk)(a - bi - cj - dk) = a^2 + b^2 + c^2 + d^2$ plus a bunch of cross terms that cancel out, like $-bcij$ and $-bcji = bcij$. In the matrix representation, the conjugate of a quaternion is the conjugate transpose of its matrix.
+
+## Inverses
+The fact that $q\ol{q}$ is always real gives us a path to finding the multiplicative inverse of a quaternion. We have $q^{-1} = \ol{q}/||q||^2$, since $q(\ol{q}/||q||^2) = (1/||q||^2)q\ol{q} = ||q||^2 /||q||^2 = 1$. (Notice that this is the exact same formula used to find the inverse of a complex number.)
+
+In matrix terms, the inverse of $q$ is $\frac{1}{\det(q)}$ times the conjugate transpose of $q$. 
+
+# Sums of Squares
+The existence of a multiplicative norm for the complex numbers and quaternions is closely connected to the existence of "two-square" and "four-square" identities, which say that the product of a sum of two or four squares is also the sum of two or four squares. Similarly, the nonexistence of a quaternion-like structure on $\R^3$ is related to the nonexistence of a 3-square identity.
+## 2-Square Identity
+Let $z = a + bi, w = c + di$. If we write out the formula $||z||^2 ||w||^2 = ||zw||^2$ explicitly, we get $(a^2 + b^2)(c^2 + d^2) = (ac - bd)^2 + (ad + bc)^2$. While we used complex numbers to derive this, this identity is valid where $a, b, c, d$ are any elements of a commutative ring, and in particular when they are integers. 
+## 4-Square Identity
+Similarly, if we write out the formula $||p||^2 ||q||^2 = ||pq||^2$ where $p = a + bi + cj + dk, q = \alpha + \beta i + \gamma j + \delta k$, we get $(a^2 + b^2 + c^2 + d^2)(\alpha^2 + \beta^2 + \gamma^2 + \delta^2) =$ $(a\alpha - b\beta - c\gamma - d\delta)^2 + (a\beta + b\alpha + c \delta - d \gamma)^2 + (a\gamma - b\delta + c\alpha + d\beta)^2 + (a\delta + b\gamma -c\beta + d\alpha)^2$; this "four-square identity" was discovered by Lagrange in number theory long before the creation of quaternions. 
+## No 3-Square Identity
+On the other hand, there is no 3-square identity, i.e. an identity of the form $(a^2 + b^2 + c^2)(d^2 + e^2 + f^2) = p^2 + q^2 + r^2$ where $p, q, r$ are simple functions of $a, b, \dots$--for example, polynomials with integer coefficients. If that were the case, then (since such an identity, if $p, q, r$ have that form, would be valid for integers) every number which is a product of two sums of 3 squares would also be a sum of 3 squares. However, there exist products of sums of 3 nonzero perfect squares which are not sums of 3 squares; 63 is the smallest example (though if you allow 0, there are even smaller examples, e.g. $15 = 3 * 5 = (1 + 1 + 1)(4 + 1 + 0)$ but $15$ is not a sum of 3 squares). 
+
+Because of this, there is no ring structure on $\R^3$ which makes the absolute value multiplicative. 

@@ -8,3 +8,4 @@
 [[Jordan Form]] Generalized eigenvectors, Jordan normal form, and the Cayley-Hamilton theorem.
 [[Orthogonal Operators and Isometries]] Orthogonal operators and matrices in n dimensions. The groups $O_2$, $SO_2$, and $SO_3$. Classification of isometries of the plane, finite groups of orthogonal operators and isometries, and discrete groups of isometries. 
 [[Matrix Exponential]] Convergence of the series for a matrix exponential. Generalizations to other vector spaces and other functions of matrices. Basic properties; computing the exponential of Jordan blocks. 
+[[Tensor Algebra and Exterior Algebra]] Multilinear forms. Alternating and symmetric forms; the symmetrization and alternation operators. The tensor product of multilinear forms; its properties (associativity, bilinearity). The wedge product. The exterior algebra of multilinear forms; its standard basis and dimension. Interior multiplication/contraction. 

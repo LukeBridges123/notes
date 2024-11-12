@@ -1,5 +1,6 @@
 [[Basic Probability]] Rules for probability: unions, intersections, complements. Conditional probability, independence, and Bayes' theorem. 
-[[Random Variables]] Discrete and continuous random variables; pmfs, pdfs, and cdfs. Expected value, variance, and standard deviation of a random variable. Sampling from random variables: the distribution of sample means and sample variances. 
+[[Random Variables]] Discrete and continuous random variables; pmfs, pdfs, and cdfs. Expected value, variance, and standard deviation of a random variable. Sampling from random variables: the distribution of sample means and sample variances. Joint distributions: independence; marginal distributions and conditional distributions; expectation of a function of several random variables. 
 [[Discrete Distributions]] Definitions and basic properties of the binomial, geometric, hypergeometric, negative binomial, and Poisson distributions. 
 [[Continuous Distributions]] Definitions and basic properties of the uniform, exponential, and Gaussian distributions. 
 [[Limit Theorems]] Gaussian approximations to binomial and Poisson distributions. Law of large numbers and central limit theorem. 
+[[Covariance and Correlation]] Covariance of two random variables. Covariance as an inner product; linear algebra interpretation of variance, correlation, etc. The correlation coefficient: definition in terms of linear models; definition in terms of the covariance. 

@@ -5,7 +5,7 @@ A Lie group is a [[Groups|group]] which is also a [[Manifolds|manifold]], where 
 ## Vector Spaces
 
 ## General Linear Group
-Recall that $GL(n, \R)$ is the set of all invertible $n \times n$ real matrices, or in other words matrices with nonzero determinant. It is an immersed submanifold of $\R^{n \times n}$ which is also a Lie group.
+Recall that $GL(n, \R)$ is the set of all invertible $n \times n$ real [[Matrices|matrices]], or in other words matrices with nonzero determinant. It is an immersed submanifold of $\R^{n \times n}$ which is also a Lie group.
 
 That $GL(n, \R)$ is a submanifold of $\R^{n \times n}$ follows from the fact that it is an open subset of $\R^{n \times n}$, and open subsets of $\R^N$ are $N$-dimensional manifolds. To see this, note that the set of singular matrices, i.e. matrices with $\det(A) = 0$, is closed (as the preimage of the closed set $\{0\}$), so its complement $GL(n, \R)$ is open. 
 
