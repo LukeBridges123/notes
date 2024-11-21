@@ -1,6 +1,3 @@
-$\newcommand{\Aut}{\text{Aut}}$ $\newcommand{\F}{\mathbb{F}}$ 
-$\newcommand{\Q}{\mathbb{Q}}$ 
-$\newcommand{\ol}{\overline}$ 
 # Symmetries of Field Extensions
 We begin by defining isomorphisms of an extension $K$ of a field $F$. These are field automorphisms of $K$ that are the identity on $F$; that is, not only should they preserve the operations and identity elements, they should have no effect on the elements of $F$. 
 

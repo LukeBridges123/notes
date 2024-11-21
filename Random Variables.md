@@ -1,4 +1,3 @@
-$\newcommand{\var}{\operatorname{Var}}$
 # Definitions
 A random variable is, roughly speaking, any way of assigning probabilities to numbers. A [[Discrete Distributions|discrete random variable]] is one with a finite or countable set of possible outcomes--usually, but not necessarily, integers. A continuous random variable is one with uncountably many possible outcomes, typically consisting of entire intervals of real numbers.
 

@@ -1,5 +1,3 @@
-
-
 ## Multiplication and Addition Principles
 Let A and B be disjoint sets; then $|A \cup B| = |A| + |B|$. Proof: just count the elements. Note that this only applies for disjoint sets, for which just adding the cardinalities doesn't double-count any elements. For unions of sets more generally, the inclusion-exclusion principle is needed.
 

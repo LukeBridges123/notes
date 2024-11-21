@@ -1,4 +1,3 @@
-$\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}$ 
 # Cotangent Vectors and the Cotangent Bundle
 Let $M$ be a manifold with tangent bundle $TM$. Now, for each tangent space $T_pM$ for $p \in M$, consider its dual vector space $(T_pM)^*$. We can then construct a "cotangent bundle" $T^*M$ in exactly the same way as the tangent bundle, by taking the disjoint union of the duals of every tangent space, $\cup_p (T_pM)^*$.
 

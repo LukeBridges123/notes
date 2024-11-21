@@ -1,4 +1,3 @@
-
 # Representations of Graphs
 We first consider the different ways to represent graphs in a program. The main ones are *adjacency lists* and *adjacency matrices*. In the first case, we have a list of vertices, where each entry $x$ points to a list of all the vertices that have an edge coming in from $x$. In the second case, we have a matrix whose $i, j$ entry is $1$ if vertex $i$ is adjacent to vertex $j$ and $0$ otherwise. (In multigraphs, we can generalize this to letting the $i, j$ entry equal the number of edges between the two.)
 

@@ -1,4 +1,4 @@
-ŒLet $\pi \in S_n$, and let $a_j = \pi(j)$. Some representations of $\pi$: "2-line representation":
+Let $\pi \in S_n$, and let $a_j = \pi(j)$. Some representations of $\pi$: "2-line representation":
 $1, 2, 3, ... n$
 $a_1, a_2, a_3, ... a_n$. (Written as an actual array, properly spaced (rather than commas) with big parentheses on both sides.) 1-line representation: $(a_1, a_2, ... a_n)$ 
 ## Inversions in Permutations

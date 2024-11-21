@@ -1,4 +1,3 @@
-
 # Pointwise convergence
 Let $(f_n)$ be a sequence of functions on the same domain $E$, and suppose that for all $x \in E$, the sequence $(f_n(x))$ converges. Then we can define a function $f$ given by $f(x) = \lim_{n \to \infty}f_n(x)$, and say that $(f_n)$ converges pointwise to $f$. 
 

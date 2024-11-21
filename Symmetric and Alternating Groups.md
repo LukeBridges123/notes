@@ -1,4 +1,3 @@
-$\newcommand{\ord}{\operatorname{ord}}$ 
 The symmetric group $S_n$ is the group of all permutations of an n-element set--say, for concreteness, $\{1, 2, \dots, n\}$. 
 
 N.B. this article covers some of the same topics as [[Cycles and Inversions in Permutations]], but from a mainly group-theoretic perspective rather than a combinatorial perspective. See there for a description of the cycle notation, cycle decomposition of a permutation, etc.

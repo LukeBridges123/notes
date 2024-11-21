@@ -1,4 +1,3 @@
-$\newcommand{\Z}{\mathbb{Z}}$ 
 # Orthogonal Matrices and O_n
 A (real) matrix $A$ is orthogonal if $A^tA = I$. This turns out to be equivalent to the statement that $A$'s columns are an orthonormal basis, and to the statement that left multiplication by $A$ preserves inner products. 
 

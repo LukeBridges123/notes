@@ -1,4 +1,3 @@
-$\newcommand{\sign}{\operatorname{sign}}$
 # Multilinear Forms
 Define a *k-linear form* on a vector space $V$ to be a function $V^k \to \R$ (or to whatever base field $V$ may have) which is linear in each argument. That is, if $f$ is a k-linear form, then for any index $i$, $f(v_1, \dots, av_i + bw_i, \dots, v_k) = af(v_1, \dots, v_i, \dots, v_k) + bf(v_1, \dots, w_i, \dots, v_k)$. Bilinear forms are a special case of this, including, for instance, the inner product; the determinant of an $n \times n$ matrix, considered as a function of its $n$ columns, is an $n$-linear form. A 1-linear form is simply a linear functional, i.e. an element of the [[Dual Vector Spaces|dual space]].
 ## Symmetric and Alternating Forms

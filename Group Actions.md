@@ -1,5 +1,3 @@
-$\newcommand{\Perm}{\text{Perm}}$
-$\newcommand{\Stab}{\text{Stab}}$ 
 # Definitions and Some Examples
 Many groups are groups of functions (specifically bijections, often preserving some structure) acting on some set--think groups of permutations, isometries, automorphisms, and so on. We can abstract this out to the idea of a "group action" or "group operation" on some set. 
 

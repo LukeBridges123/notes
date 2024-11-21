@@ -1,4 +1,4 @@
-$\newcommand{\cov}{\operatorname{Cov}}$
+
 # Covariance
 ## Definition
 For random variables $X, Y$ with means $\mu_X, \mu_Y$, we define their covariance $\cov(X, Y)$ to be $E((X - \mu_X) \cdot (Y - \mu_Y))$. This is, as the name suggests, a measure of how much $X$ and $Y$ "vary together". To see why this should intuitively be the case, consider the following argument. If, whenever $X$ is far above its mean, $Y$ is also, and when $X$ is far above its mean, $Y$ is also, $(X - \mu_X) \cdot (Y - \mu_Y)$ will tend to be a product of two terms with the same sign, so $E((X - \mu_X)(Y - \mu_Y))$ will be positive. The same applies when the relationship is reversed; in that case $(X - \mu_X) \cdot (Y -\mu_Y)$ will tend to be negative. If $X$ and $Y$ "have little to do with each other", roughly speaking, then we expect that $(X - \mu_X) \cdot (Y - \mu_Y)$ will be positive sometimes and negative sometimes in equal measure, so $E((X - \mu_X)(Y - \mu_Y))$ will be close to $0$. 

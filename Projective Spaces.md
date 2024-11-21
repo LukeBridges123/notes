@@ -1,5 +1,3 @@
-$\newcommand{\C}{\mathbb{C}}$
-$\newcommand{\Z}{\mathbb{Z}}$ 
 # N-Dimensional Real Projective Space
 The "real projective space" $\R P^n$ is given by the set of all lines through the origin in $\R^{n+1}$. This is a quotient of $\R^{n+1}\backslash \{0\}$ by the equivalence relation that identifies all vectors which are nonzero scalar multiples of each other. Thus the equivalence class of a vector $v$ is the span of $v$. We can then use the quotient topology on this set of equivalence classes. 
 

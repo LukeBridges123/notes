@@ -1,6 +1,3 @@
-$\newcommand{\Q}{\mathbb{Q}}$ $\newcommand{\ol}{\overline}$ 
-$\newcommand{\F}{\mathbb{F}}$ 
-$\newcommand{\C}{\mathbb{C}}$ $\newcommand{\Z}{\mathbb{Z}}$ 
 # Definitions
 
 ## Ideals

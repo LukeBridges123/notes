@@ -97,8 +97,9 @@ Now, $L(da) = d(La) = ddb = 0$, and since $L$ is injective, we have $da = 0$. He
 Now we check that this does not depend on which element of $C^p$ we chose to begin with. ..... all this means that we have a well-defined map $\delta$ on the cohomology classes, defined by $\delta([c]) = [\hat{\delta}(c)]$. 
 
 ## Zig-Zag Lemma
-From the above, we get the fact that any short exact sequence induces a long exact sequence in cohomology: $H^{p-1}(A) \to H^{p-1}(B) \to H^{p-1}(C) \to H^p(A) \to H^p(B) \to \dots$ 
+From the above, we get the fact that any short exact sequence induces a long exact sequence in cohomology: $H^{p-1}(A) \to H^{p-1}(B) \to H^{p-1}(C) \to H^p(A) \to H^p(B) \to \dots$  
 
+The name comes from the diagram (see Tu, page 285) used to define the connecting homomorphism. 
 # The Mayer-Vietoris Sequence
 Suppose $M = U \cup V$ where $U, V$ are open. Then we have inclusion maps $i_U: U \to M, i_V: V \to M, j_U: U \cap V \to U, j_V: U \cap V \to V$. 
 
@@ -112,7 +113,7 @@ As for surjectivity of $j$, we choose a partition of unity $\psi_U, \psi_V$ subo
 
 This suffices to show that, for any $k$, the sequence $0 \to \Omega^k(M) \to^i \Omega^k(U) \oplus \Omega^k(V) \to^j \Omega^k(U \cap V) \to 0$ is a short exact sequence. Per the zig-zag lemma, we then get a long exact sequence in cohomology.
 
-Explicitly, at each "level" we have a sequence $H^k(M) \to^i H^k(U) \oplus H^k(V) \to^j H^k(U \cap V)$. Here we abuse notation a bit to identify $i, j$ with the induced maps on cohomology classes, $i([\omega]) = [i(\omega)]$. 
+Explicitly, at each "level" we have a sequence $H^k(M) \to^i H^k(U) \oplus H^k(V) \to^j H^k(U \cap V)$. Here we abuse notation a bit to identify $i, j$ with the induced maps on cohomology classes, $i([\omega]) = [i(\omega)]$. Then we have the connecting homomorphism going from $H^k(U \cap V) \to H^{k+1}(M)$. 
 
 # More Complicated Examples
 ## The N-Sphere
