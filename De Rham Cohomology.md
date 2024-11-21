@@ -64,3 +64,97 @@ Diffeomorphic manifolds have isomorphic de Rham cohomologies. Let $F: M \to N$ b
 We can get the stronger result that any manifolds with the same "smooth homotopy type" have the same de Rham cohomology. We say that $M, N$ have the same homotopy type if there exist maps $F: M \to N, G: N \to M$ such that $F \circ G, G \circ F$ are both smoothly homotopic to the identity. We can repeat the same proof as above and then use the homotopy axiom ((3) above). 
 
 Combining the results above with the "Whitney approximation theorem" (every continuous homotopy is homotopic to a smooth homotopy) we can say that any smooth manifolds with the same (continuous) homotopy type have the same de Rham cohomology.
+
+# Tools From Homological Algebra
+## Cochain Complexes
+A cochain complex is a graded vector space $C^* = \oplus_p C^p$ with a sequence of linear maps $d: C^p \to C^{p+1}$ such that $d^2 = 0$. 
+
+(A graded vector space is a vector space $C^*$ which is the direct sum of several vector spaces $C^p$, where to each element of $C^*$ we assign it an integer "degree" $p$ based on which of the $C^p$ it's from.)
+
+We can then define the cohomology $H^*(C^*) = \oplus_p H^p(C^p)$ where $H^p = (C^p \cap \ker(d)) / d(C^{p-1})$. 
+
+This is just an abstraction of the setup above, where $d$ maps $p$-forms to $p+1$-forms, and the $p$th de Rham cohomology is the quotient of the kernel of $d$ (closed forms) by the range of $d$ on the previous space (exact forms). 
+
+A "cochain map" $f: C^* \to D^*$ is a linear map which preserves degree $(f(C^p) \subseteq D^p)$ and commutes with $d$, i.e. $(f \circ d_C = d_D \circ f)$. This induces a map $\overline{f}: H^*(C^*) \to H^*(D^*)$ by $\overline{f}([c]) = [f(c)]$, which is well-defined because $[f[c + d\alpha]] = [fc + d(f\alpha)] = [fc]$, using linearity and the fact that $f$ commutes with $d$.
+
+## Exact Sequences
+As a further abstraction of the above, we say that a (finite) sequence of vector spaces $V_i$ and linear maps $L_i: V_i \to V_{i+1}$, $\dots \to V_{i-1} \to^{L_{i-1}} \to V_i \to^{L_i} V_{i+1} \to \cdots$ is an "exact sequence" if $\ker(L_i) = \im(L_{i-1})$, which implies $L_i \circ L_{i-1} = 0$ (as in the case of the exterior derivative, and more generally cochain complexes), as well as that the cohomology $H^i = V_i \cap \ker(L_i) / L_{i-1}(V_{i-1})$ is always trivial (since the "numerator" and "denominator" are always equal). (This is analogous to the situation where every closed form is exact in de Rham cohomology). 
+
+In an exact sequence, we have $\sum (-1)^i \dim(V_i) = 0$. This comes from using rank-nullity and the basic property of an exact sequence $\ker(L_i) = \im(L_{i-1})$, to turn that sum into a telescoping sum.
+
+A *short exact sequence* is an exact sequence involving only 3 vector spaces, $0 \to A \to^L B \to^M C \to 0$. Since $\ker(L)$ is the image of the map $0 \to A$, $L$ is injective; since the kernel of the map $C \to 0$ is $\im(M)$, and is also clearly all of $C$, $M$ is surjective. 
+
+When $A, B, C$ are cochain complexes and $L, M$ are cochain maps, we get induced maps between the cohomology classes $H^p(A) \to H^p(B) \to H^p(C)$ according to a certain diagram....
+
+plus a "connecting homomorphism" $\delta: H^p(C) \to H^p(A)$. 
+
+To define this, we first look at ....
+
+take a $c \in C^p$ with $dc = 0$. Then there exists a (not necessarily unique) $b \in B^p$ with $M(b) = c$, since we have the surjective map $M: B^p \to C^p$. Now take $db$, which is in $B^{p+1}$. Then $M(db) = d(Mb) = dc = 0$, so $b$ comes from something in $A^{p+1}$. Hence there exists $a \in A^{p+1}$ with $L(a) = db$. 
+
+Now, $L(da) = d(La) = ddb = 0$, and since $L$ is injective, we have $da = 0$. Hence $a$ is closed, and so we can take the equivalence class $[a] \in H^{p+1}(A)$, and define $\hat{\delta}(c) = [a]$. 
+
+Now we check that this does not depend on which element of $C^p$ we chose to begin with. ..... all this means that we have a well-defined map $\delta$ on the cohomology classes, defined by $\delta([c]) = [\hat{\delta}(c)]$. 
+
+## Zig-Zag Lemma
+From the above, we get the fact that any short exact sequence induces a long exact sequence in cohomology: $H^{p-1}(A) \to H^{p-1}(B) \to H^{p-1}(C) \to H^p(A) \to H^p(B) \to \dots$ 
+
+# The Mayer-Vietoris Sequence
+Suppose $M = U \cup V$ where $U, V$ are open. Then we have inclusion maps $i_U: U \to M, i_V: V \to M, j_U: U \cap V \to U, j_V: U \cap V \to V$. 
+
+We then have pullback maps going in the opposite direction, $0 \to \Omega_M^* \to^i \Omega_U^* \oplus \Omega_V^* \to^j \Omega_{U \cap V}^* \to 0$. We define $i = (i_U^*, i_V^*)$ and $j(\omega, \eta) = j_U^*\omega - j_V^*\eta$. This is then a short exact sequence. 
+
+Both $i, j$ are linear and commute with $d$; this follow from the corresponding properties of pullbacks. They also preserve degree, which again comes from the properties of pullbacks. Thus they are cochain maps on the cochain complexes $\Omega_M^*$, etc. 
+
+Injectivity of $i$ follows from the fact that, if the restriction to $U$ and restriction to  $V$ of a form $\omega$ are $0$, $\omega$ is $0$ everywhere. $j \circ i = 0$ follows from...
+
+As for surjectivity of $j$, we choose a partition of unity $\psi_U, \psi_V$ suboordinate to the cover $U, V$. 
+
+This suffices to show that, for any $k$, the sequence $0 \to \Omega^k(M) \to^i \Omega^k(U) \oplus \Omega^k(V) \to^j \Omega^k(U \cap V) \to 0$ is a short exact sequence. Per the zig-zag lemma, we then get a long exact sequence in cohomology.
+
+Explicitly, at each "level" we have a sequence $H^k(M) \to^i H^k(U) \oplus H^k(V) \to^j H^k(U \cap V)$. Here we abuse notation a bit to identify $i, j$ with the induced maps on cohomology classes, $i([\omega]) = [i(\omega)]$. 
+
+# More Complicated Examples
+## The N-Sphere
+The de Rham cohomology $H^k(S^n)$ of the n-sphere is $\R$ when $k=0$ or $k=n$, $0$ otherwise. 
+
+We know that there are closed n-forms on the n-sphere which are not exact (example from homework--a form whose exterior derivative is the volume form on $\R^{n+1}$; using Stokes' theorem to show that the integral of such a form is nonzero). 
+
+To more precisely pin down $H^n(S^n)$, we need the following lemma: an n-form $\omega$ on $S^n$ is exact if and only if $\int_{S^n} \omega = 0$. For one direction, if $\omega$ is exact, $\omega = d\alpha$, then $\int_{S^n}\omega = \int_{B^{n+1}}d\omega = \int_{B^{n+1}}d(d\alpha) = 0$. For the other direction, 
+
+...
+## Surfaces
+Let $\Sigma_g$ be a standard surface of genus $g$ (i.e. orientable surface with n holes). We have $H^0 = \R$ by connectedness, and $H^2 (\Sigma_g) = \R$ also (by a result mentioned below). 
+
+To find $H^1(\Sigma_g)$, we first smoothly deform $\Sigma_g$ into the sphere with $g$ handles. (N.B. if we detach such a handle from the sphere, we get an "open cylinder" $S^1 \times (-1, 1)$.)
+
+We start out by taking off all the handles; we get a sphere with $2g$ disjoint balls removed, say $B_i(p_i, 2\epsilon)$. Let $U$ be the union of all the $B_i$, and let $M$ be the sphere with smaller balls $B_i(p_i, \epsilon)$ removed. Then $U \cap M$ is a union of $2g$ annuli, which is homotopic to $2g$ copies of $S^1$. 
+
+Then $\chi(U) = 2g$--$U$ is homotopic to $2g$ points, and for a union of finitely many points, the only nontrivial cohomology is $H^0$, which has dimension $2g$ in this case. As for $U \cap M$, it is (for similar reasons--it is the union of $2g$ things each homotopic to $S^1$)) $2g\chi(S^1)$, but $\chi(S^1) = 0$.
+
+Thus $\chi(S^2) = \chi(U) + \chi(M) - \chi(U \cap M)$, so $\chi(M) = \chi(S^2) - \chi(U) + \chi(U \cap M) = 2 - 2g + 0 = 2 - 2g$. 
+
+Now we consider gluing on the handles. Letting $H$ be the union of all the handles, we have $\sigma_g = M \cup H$. Since $H$ is a disjoint union of surfaces homotopic to the circle, its Euler characteristic is $0$. 
+
+We have $\chi(\Sigma_g) = \chi(M) + \chi(H) - \chi(M \cap H) = 2 - 2g$. This then gives us $\dim(H^1(\sigma_g)) = 2g$.  
+
+# Related Invariants
+## Euler Characteristic
+The Euler characteristic of a manifold $M$ is defined to be $\chi(M) = \sum (-1)^p \dim(H^p(M))$. For example, for the $n$-sphere, it is $2$ if $n$ is even and $0$ if $n$ is odd. 
+
+There exists a recurrence for the Euler characteristic, which comes from the Mayer-Vietoris sequence. If $M = U \cup V$ for open $U, V$ then $\chi(M) = \chi(U) + \chi(V) - \chi(U \cap V)$. 
+
+...result: for compact, oriented manifold, $H^N(M) = \R$. 
+
+# Misc. Applications
+## Brouwer Fixed Point Theorem
+First, a lemma.
+Let $\ol{B}$ be the closed unit ball in $\R^{n+1}$. Then there exists no smooth map from $\ol{B}$ to its boundary (i.e. the $n$-sphere) which is the identity on the boundary. For, if there exists such a map $f$, then ... sequence of maps $\partial \ol{B} \to \ol{B} \to \partial \ol{B}$... (first is the inclusion map)...induces maps in cohomology, from $\R \to 0 \to \R$, which can't happen if $n > 1$...
+
+Now we can state and prove the Brouwer fixed point theorem: every smooth map $f: \ol{B} \to \ol{B}$ has a fixed point, i.e. a point $p$ with $f(p) = p$. (In fact, this holds more generally for continuous maps.)
+
+For example, in the 1-dimensional case, $\ol{B} = [0, 1]$; given a function $f$, we can consider $g(x) = f(x) - x$. Then $g(0) \geq 0$ and $g(1) \leq 0$, so by the intermediate value theorem we must have $g(x) = 0$ somewhere, so $f(x) = x$ somewhere. 
+
+More generally, if $f$ has a no fixed point, then we can consider the ray going from $x$ to $f(x)$, which will intersect $\partial \ol{B}$ at some unique point $\phi(x)$. This ray is given by $x + tu$ where $u = (x - f(x))/||x - f(x)||$. (Again, this is well-defined because $x \neq f(x)$.)
+
+We then have $1 = |x + tu|^2 = t^2 + 2t x \cdot u + |x|^2$, so $t = x \cdot u + \sqrt{1 - |x|^2 + (x \cdot u)^2}$. This means that $t$ depends smoothly on $x$, so $\phi(x)$ is a smooth function of $x$. It is also the identity on $\partial \ol{B}$. But by the previous lemma, there is no smooth map from $\ol{B}$ to itself which is the identity on the boundary. 
