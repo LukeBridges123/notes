@@ -32,3 +32,21 @@ Now suppose we want to swap $1$ and $4$. Since we already know how to write $(13
 
 More generally, we can write $(1n) = (1(n-1))((n-1)n)(1(n-1)) = (12)(23)(34)\cdots ((n-1)n) \cdots (34)(23)(12)$. 
 # Sign of a Permutation
+The sign or parity of a permutation has several equivalent definitions, which we will review below. All of them lead to the existence of a homomorphism $\sign: S_n \to \{-1, 1\}$ where the sign of a transposition is $-1$. We say that a permutation is even/odd if its sign is 1 or -1.
+## Inversions
+In [[Cycles and Inversions in Permutations]] we defined the sign of a permutation in terms of the parity of the number of inversions in it, but failed to show that, in this definition, $\sign$ is a homomorphism. We can do so as follows.
+### "Topological" Proof that Sign is a Homomorphism
+Consider a diagram with 1, 2, ..., n on the top and bottom, and for each number $i$, a straight line drawn from $i$ to $\pi(i)$. (Get a picture in here later?)
+
+Then the number of inversions is equal to the number of intersections between the lines: for if $(i, j)$ is a pair involved in an inversion (i.e. $i < j$ but $\pi(j) < \pi(i)$) then the line going from $i$ to $\pi(i)$ will have to cross the line going from $j$ to $\pi(j)$. 
+
+We can compose permutations by "composing" their diagrams. To represent $\sigma \circ \pi$, draw the diagram for $\pi$, and add another row of numbers below; then, from the middle row to the new bottom row, draw lines from $i$ to $\sigma(i)$ for all $i$. Now, if you erase the middle row of numbers, you'll end up with bent lines going from $i$ on the top row to $\sigma(\pi(i))$ on the bottom row.
+
+In this representation, the total number of crossings is equal to the sum of the number of inversions in $\pi$ and the number of inversions in $\sigma$. Certainly the number of inversions in $\sigma \circ \pi$ is not equal to that sum; rather, it is equal to the number of crossings that remain after you deform the bent lines into straight lines from $i$ to $\sigma(\pi(i))$. We will show that the *parity* of the number of crossings is preserved under deformations like this; thus (number of inversions in $\sigma \circ \pi$) = (number of inversions in $\sigma$) + (number of inversions in $\pi$) (mod $2$), which is what we need for $\sign$ to be a homomorphism. 
+
+...bring in a diagram showing how, during the legal "moves" usable to deform a diagram, intersections are created and destroyed in pairs...
+
+## Transpositions
+Another way to define the sign is: $\sign(\pi) = 1$ if $\pi$ can be written as a product of an even number of transpositions, $\sign(\pi) = -1$ otherwise. This obviously makes $\sign$ a homomorphism: multiplying a product of an even number of transpositions by a product of an even number of transpositions gives you another even number of transpositions, etc. It is less obvious that this is well-defined--we need to prove that, if a permutation can be written as an even number of transpositions, it cannot be written as an odd number of transpositions. 
+
+The easiest way to do this is by using another definition, like the definition in terms of inversions. 

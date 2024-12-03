@@ -14,6 +14,8 @@ $\newcommand{\Z}{\mathbb{Z}}$
 $\newcommand{\var}{\operatorname{Var}}$
 $\newcommand{\ord}{\operatorname{ord}}$
 $\newcommand{\sign}{\operatorname{sign}}$
+$\newcommand{\im}{\operatorname{Im}}$
+$\newcommand{\MatrixTwoTwo}[4]{\begin{pmatrix} #1 &#2\\ #3 &#4 \end{pmatrix}}$ 
 ```
 \newcommand{\ket}[1]{|#1 \rangle}
 \newcommand{\bra}[1]{\langle #1 |}
@@ -31,4 +33,6 @@ $\newcommand{\sign}{\operatorname{sign}}$
 \newcommand{\var}{\operatorname{Var}}
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\sign}{\operatorname{sign}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\MatrixTwoTwo}[4]{\begin{pmatrix} #1 &#2\\ #3 &#4 \end{pmatrix}}
 ```

@@ -42,25 +42,17 @@ Some of the most commonly useful properties of 1-forms, the $d$ operator, and th
 
 
 # K-Forms
-.....
-.....
 ## Integrating over Surfaces
 As motivation for how we're going to generalize 1-forms to higher dimensions, consider integrating some object $\phi$ over a surface. (What this object is, we will see as we go along.) As with 1-forms, we parameterize our surface by $\gamma(s, t)$; at each point we get tangent vectors $S = \gamma_*(\pd{}{s}), T = \gamma_*(\pd{}{t})$. 
 
 .....
 
 ## Definition of a K-Form
-....
-something about constructions with the tangent and cotangent bundles
-....
-
-....
-We then get the *exterior algebra bundle* $\wedge^* (T^*M)$, which assigns, to each point, the exterior algebra on the cotangent space at that point. As with 1-forms, we can get a local trivialization of this bundle by choosing local coordinates and writing all the elements of the exterior algebra in that basis. 
+The *exterior algebra bundle* $\wedge^* (T^*M)$ assigns, to each point, the exterior algebra on the cotangent space at that point. As with 1-forms, we can get a local trivialization of this bundle by choosing local coordinates and writing all the elements of the exterior algebra in that basis. 
 
 Sections of the bundle $\wedge^k (T^*M)$ are called differential $k$-forms. The set of all $p$-forms is denoted $\Omega_M^p$, and the set of all sections of the whole exterior algebra bundle is denoted $\Omega_M^*$. 
 
-Much like the different ways to think of vector fields and 1-forms, general k-forms can be thought of in the following ways: sections of $\wedge^k(T^*M)$; as alternating multilinear maps on $p$-tuples of vector fields, $X(M) \times \dots \times X(M) \to C^\infty(M)$, which are $C^\infty(M)$-linear; and locally, like linear combinations of basic forms $dx^I$. 
-
+Much like the different ways to think of vector fields and 1-forms, general k-forms can be thought of in the following ways: sections of $\wedge^k(T^*M)$; as alternating multilinear maps on $p$-tuples of vector fields, $X(M) \times \dots \times X(M) \to C^\infty(M)$, which are $C^\infty(M)$-linear; and locally, like linear combinations of basic forms $dx^I$, where $I$ is a multi-index.
 ## Operations on Forms
 ### Wedge Product
 The wedge product on alternating forms can be extended into an operation on differential forms. That is, we have an operation $\wedge: \Omega_M^p \times \Omega_M^q \to \Omega_M^{p+q}$ which has all the properties of the wedge product on alternating forms: bilinearity, antisymmetry, etc. We do this by just taking the wedge product pointwise, $(\omega \wedge \eta)_p = \omega_p \wedge \eta_p$. 

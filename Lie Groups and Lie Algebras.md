@@ -3,7 +3,7 @@ A Lie group is a [[Groups|group]] which is also a [[Manifolds|manifold]], where 
 
 # Examples
 ## Vector Spaces
-
+$\R^n$, with group structure given by addition, is a Lie group. The smoothness of addition and inversion follows from looking at each coordinate and using the smoothness of addition and multiplication (as functions $\R \times \R \to \R$).
 ## General Linear Group
 Recall that $GL(n, \R)$ is the set of all invertible $n \times n$ real [[Matrices|matrices]], or in other words matrices with nonzero determinant. It is an immersed submanifold of $\R^{n \times n}$ which is also a Lie group.
 
@@ -21,7 +21,7 @@ Define a map from the set of all $n \times n$ real matrices to the set of symmet
 
 Now we check that $I$ is a regular value. We start by looking at the differential $Df_A(B)$ where $A$ is an orthogonal matrix and $B$ is any matrix. Equivalently, this is $\frac{d}{dt}f(A + tB)$ evaluated at $t = 0$. This equals $\frac{d}{dt}((A + tB)^T(A + tB))$, or $\frac{d}{dt}(A^TA + t(A^TB + B^TA) + t^2B^TB)$, which in turn equals $A^TB + B^TA + 2tB^TB$, and evaluating at $t=0$ gets $A^TB + B^TA$.  
 
-Now consider $(Df)_A(C)$ where $C = \frac{1}{2}AS$ for some symmetric $S$. Then $(Df_A)(c) = \frac{1}{2}(A^TAS + (AS)^TA) = \frac{1}{2}(S + S^TA^TA) = \frac{1}{2}(S + S^T) = \frac{1}{2}(S + S) = S$. Thus for any symmetric matrix $S$, there exists a matrix $C$ with $(Df_A)(C) = S$, so the differential is surjective for any orthogonal $A$, and so $I$ is a regular value of $f$. By the regular value theorem, $O(n)$ is a closed, embedded submanifold of $\R^{n^2}$. It has dimension $n^2$ minus the dimension of the set of all symmetric matrices, $\frac{n(n+1)}{2}$, i.e. $n^2 - \frac{n(n+1)}{2} = \frac{n(n-1)}{2}$. 
+Now consider $(Df)_A(C)$ where $C = \frac{1}{2}AS$ for some symmetric $S$. Then $(Df_A)(c) = \frac{1}{2}(A^TAS + (AS)^TA) = \frac{1}{2}(S + S^TA^TA) = \frac{1}{2}(S + S^T) = \frac{1}{2}(S + S) = S$. Thus for any symmetric matrix $S$, there exists a matrix $C$ with $(Df_A)(C) = S$, so the differential (considered as a map onto the set of symmetric matrices) is surjective for any orthogonal $A$, and so $I$ is a regular value of $f$. By the regular value theorem, $O(n)$ is a closed, embedded submanifold of $\R^{n^2}$. It has dimension $n^2$ minus the dimension of the set of all symmetric matrices, $\frac{n(n+1)}{2}$, i.e. $n^2 - \frac{n(n+1)}{2} = \frac{n(n-1)}{2}$. 
 
 The smoothness of the group operations is inherited from $SL_n(\R)$. Thus $O(n)$ is a Lie group.
 ### Topology of O(n) and SO(n)

@@ -1,9 +1,9 @@
 # Definition and Motivation
-The idea behind de Rham cohomology is that the set of closed forms and the set of exact forms on a manifold $M$ are both vector spaces, with the latter being a subspace of the former. On the simplest manifolds, these are the same. In the more general case, we can get an idea of how much they differ by defining the quotient vector space $H_{dR}^p (M) = Z^p(M)/B^p(M)$, where $Z^p(M)$, $B^p(M$) are the spaces of closed and exact $p$-forms on $M$; this is called the "first de Rham cohomology group" of $M$. 
+The idea behind de Rham cohomology is that the set of closed forms and the set of exact forms on a manifold $M$ are both vector spaces, with the latter being a subspace of the former. On the simplest manifolds, these are the same. In the more general case, we can get an idea of how much they differ by defining the quotient vector space $H_{dR}^p (M) = Z^p(M)/B^p(M)$, where $Z^p(M)$, $B^p(M$) are the spaces of closed and exact $p$-forms on $M$; this is called the "$p$th de Rham cohomology group" of $M$. Thus we get a sequence of abelian [[Groups|groups]] or [[Vector Spaces|vector spaces]] associated with our manifold. 
 
 De Rham cohomology measures global properties of a manifold. All closed forms are locally exact, so a manifold locally has trivial de Rham cohomology. If we find that a manifold has nontrivial de Rham cohomology, that's something which does not follow solely from local properties of the manifold.
 
-Another way to think of the de Rham cohomology is in terms of the sequence of maps $\Omega_M^0 \to^d \Omega_M^1 \to^d \Omega_M^2 \to^d \dots$. The closed forms are the ones whose exterior derivative is $0$ (i.e. the kernel of $d$ at the $p$th level) and the exact forms are the ones which are the exterior derivative of something (i.e. the range of $d$ at the $p-1$th level). This means that the kernel of one $d$ equals the range of the previous $d$. This sort of situation can be described more generally using the machinery of "exact sequences".
+Another way to think of the de Rham cohomology is in terms of the sequence of maps $\Omega_M^0 \to^d \Omega_M^1 \to^d \Omega_M^2 \to^d \dots$. The closed forms are the ones whose exterior derivative is $0$ (i.e. the kernel of $d$ at the $p$th level) and the exact forms are the ones which are the exterior derivative of something (i.e. the range of $d$ at the $p-1$th level). This means that the kernel of one $d$ equals the range of the previous $d$. This sort of situation can be described more generally using the machinery of "exact sequences", described below.
 # The Algebra of Cohomology Classes
 The elements of $H^p(M)$ are equivalence classes called "cohomology classes". For each closed p-form $\omega$, its cohomology class $[\omega]$ is the set of all $p$-forms of the form $\omega + d\eta$ where $\eta$ is a $(p-1)$-form. We can add cohomology classes and multiply them by scalars, using the same sorts of operations that we usually use with quotient objects: $[\omega] + [\eta] = [\omega + \eta]$, and $a[\omega] = [a\omega]$. 
 
@@ -48,22 +48,19 @@ The following axioms are (almost) sufficient to uniquely characterize de Rham co
 (1) $H^*(M)$ is a contravariant functor from manifolds to algebras.
 (2) the de Rham cohomology $H^p$ of a single point is $\R$ if $p=0$, $0$ otherwise.
 (3) de Rham cohomology is invariant under homotopy: if $F$ is homotopic to $G$ then $F^* = G^*$. 
-
-(re: homotopy, two functions are homotopic if there is a ....)
-
 (4) if $M$ is a disjoint union of components $M_\alpha$, then $H^*(M)$ is the direct sum $\oplus_\alpha H^*(M_\alpha)$. 
-(5) (Mayer-Vietoris) if $M = U \cup V$ where $U, V$ are open subsets of $M$, then there exists a "long exact sequence" in $H^*(M)$, which we will describe below.
+(5) (Mayer-Vietoris) if $M = U \cup V$ where $U, V$ are open subsets of $M$, then there exists a "long exact sequence" passing through the cohomology groups, $\dots \to H^p(M) \to H^p(U) \oplus H^p(V) \to H^p(U \cap V) \to H^{p+1}(M) \to \dots$ which we will describe below.
 
-We did (1) and (4) above. (2) follows from our result about what $H^0(M)$ looks like, combined with the fact that the dimension of a point is $0$ (so $H^1, H^2,$ etc. don't exist here). 
+We did (1) and (4) above. (2) follows from our result about what $H^0(M)$ looks like, combined with the fact that the dimension of a point is $0$ (so $H^1, H^2,$ etc. don't exist here). (3) and (5)
 
-For (3)...
+# Homotopy Invariance
 
 # de Rham Cohomology as a Topological Invariant
 Diffeomorphic manifolds have isomorphic de Rham cohomologies. Let $F: M \to N$ be a diffeomorphism with inverse $G: N \to M$. Then $G \circ F = I_M, F \circ G = I_N$. Our induced maps then satisfy $G^* \circ F^* = (F \circ G)^* = I$, and the same for $F^* \circ G^*$. Thus $F^*$ is an isomorphism $H^*(N) \to H^*(M)$ with $G^*$ as its inverse. 
 
 We can get the stronger result that any manifolds with the same "smooth homotopy type" have the same de Rham cohomology. We say that $M, N$ have the same homotopy type if there exist maps $F: M \to N, G: N \to M$ such that $F \circ G, G \circ F$ are both smoothly homotopic to the identity. We can repeat the same proof as above and then use the homotopy axiom ((3) above). 
 
-Combining the results above with the "Whitney approximation theorem" (every continuous homotopy is homotopic to a smooth homotopy) we can say that any smooth manifolds with the same (continuous) homotopy type have the same de Rham cohomology.
+Combining the results above with the "Whitney approximation theorem" (every continuous homotopy is homotopic to a smooth homotopy) we can say that any smooth manifolds with the same (continuous) homotopy type have the same de Rham cohomology. This means, for example, that homeomorphic manifolds have the same de Rham cohomology. 
 
 # Tools From Homological Algebra
 ## Cochain Complexes
@@ -99,6 +96,8 @@ Now we check that this does not depend on which element of $C^p$ we chose to beg
 ## Zig-Zag Lemma
 From the above, we get the fact that any short exact sequence induces a long exact sequence in cohomology: $H^{p-1}(A) \to H^{p-1}(B) \to H^{p-1}(C) \to H^p(A) \to H^p(B) \to \dots$  
 
+Here the map from $H^p(A) \to H^p(B)$ at each level is $L^*$, the map in cohomology induced by the map $L: A \to B$ in the original short exact sequence; the same goes for the map $H^p(B) \to H^c(C)$. The maps from one "level" to another, $H^p(C) \to H^{p+1}(A)$, are the connecting homomorphism described above. 
+
 The name comes from the diagram (see Tu, page 285) used to define the connecting homomorphism. 
 # The Mayer-Vietoris Sequence
 Suppose $M = U \cup V$ where $U, V$ are open. Then we have inclusion maps $i_U: U \to M, i_V: V \to M, j_U: U \cap V \to U, j_V: U \cap V \to V$. 
@@ -115,23 +114,27 @@ This suffices to show that, for any $k$, the sequence $0 \to \Omega^k(M) \to^i \
 
 Explicitly, at each "level" we have a sequence $H^k(M) \to^i H^k(U) \oplus H^k(V) \to^j H^k(U \cap V)$. Here we abuse notation a bit to identify $i, j$ with the induced maps on cohomology classes, $i([\omega]) = [i(\omega)]$. Then we have the connecting homomorphism going from $H^k(U \cap V) \to H^{k+1}(M)$. 
 
+In the most common uses of the Mayer-Vietoris sequence, most of the terms will be known to us (and will often be equal to $0$). The terms we want to find will usually be part of exact sequences with only a few terms, like $0 \to A \to B \to 0$, and we can then use the general properties of such sequences (e.g. that certain maps must be isomorphisms, surjections, etc.) to pin down the missing terms. See for instance the example of the $n$-sphere below. 
+
 # More Complicated Examples
 ## The N-Sphere
 The de Rham cohomology $H^k(S^n)$ of the n-sphere is $\R$ when $k=0$ or $k=n$, $0$ otherwise. 
 
 We know that there are closed n-forms on the n-sphere which are not exact (example from homework--a form whose exterior derivative is the volume form on $\R^{n+1}$; using Stokes' theorem to show that the integral of such a form is nonzero). 
 
-To more precisely pin down $H^n(S^n)$, we need the following lemma: an n-form $\omega$ on $S^n$ is exact if and only if $\int_{S^n} \omega = 0$. For one direction, if $\omega$ is exact, $\omega = d\alpha$, then $\int_{S^n}\omega = \int_{B^{n+1}}d\omega = \int_{B^{n+1}}d(d\alpha) = 0$. For the other direction, 
+We can prove this by induction, using the Mayer-Vietoris sequence. We've already handled the 1-sphere/circle; suppose now that the result also holds for $S^{n-1}$. Let $U$ be the northern hemisphere (plus a bit of the southern hemisphere)--the points $(x_1, \dots, x_{n+1}) \in \R^{n+1}$ on the n-sphere with $x_{n+1} \geq -0.1$, say (the equator is at $x_{n+1} = 0$). Similarly, let $V$ be the southern hemisphere plus a bit of the northern hemisphere. Then $U \cup V = S^n$, $U$ and $V$ are both diffeomorphic to $\R^n$, and $U \cap V$, an "open strip" along the equator, is homotopic to $S^{n-1}$ (by a deformation retraction onto the equator). 
 
-...
+On a typical level of the sequence, we get $H^{p-1}(U \cap V) \to H^p(M) \to H^p(U) \oplus H^p(V) = H^{p-1}(S^{n-1}) \to H^p(S^n) \to H^p(\R^n) \oplus H^p(\R^n) \dots$ By assumption, if $1 < p < n$ then the first term is $0$, and we know the third term is as well, hence $H^p(S^n) = 0$. The lowest level $0 \to H^0(S^n) \to H^0(\R^n) \to H^0(\R^n) \to H^0(S^{n-1}) \to H^1(S^n) \to H^1(\R^n) \oplus H^1(\R^n) \to \dots$ becomes $0 \to \R \to \R^2 \to \R \to H^1(S^n) \to 0 \cdots$ which forces $H^1(S^n) = 0$. 
+
+Finally, at the top level $H^{n-1}(\R^n) \oplus H^{n-1}(\R^n) \to H^{n-1}(S^{n-1}) \to H^n(S^n) \to H^n(\R^n) \oplus H^n(\R^n) \to H^n(S^{n-1}) \to 0$, we get $0 \to \R \to H^n(S^n) \to 0 \to 0 \to 0$ ($H^{n-1}(S^{n-1}) = \R$ coming from the induction hypothesis). In a 2-term exact sequence like $0 \to \R \to H^n(S^n) \to 0$, the middle map is an isomorphism, hence $H^n(S^n) = \R$, as desired. 
 ## Surfaces
-Let $\Sigma_g$ be a standard surface of genus $g$ (i.e. orientable surface with n holes). We have $H^0 = \R$ by connectedness, and $H^2 (\Sigma_g) = \R$ also (by a result mentioned below). 
+Let $\Sigma_g$ be a standard surface of genus $g$ (i.e. orientable surface with $g$ holes). We have $H^0 = \R$ by connectedness, and $H^2 (\Sigma_g) = \R$ also (by a result mentioned below). 
 
 To find $H^1(\Sigma_g)$, we first smoothly deform $\Sigma_g$ into the sphere with $g$ handles. (N.B. if we detach such a handle from the sphere, we get an "open cylinder" $S^1 \times (-1, 1)$.)
 
 We start out by taking off all the handles; we get a sphere with $2g$ disjoint balls removed, say $B_i(p_i, 2\epsilon)$. Let $U$ be the union of all the $B_i$, and let $M$ be the sphere with smaller balls $B_i(p_i, \epsilon)$ removed. Then $U \cap M$ is a union of $2g$ annuli, which is homotopic to $2g$ copies of $S^1$. 
 
-Then $\chi(U) = 2g$--$U$ is homotopic to $2g$ points, and for a union of finitely many points, the only nontrivial cohomology is $H^0$, which has dimension $2g$ in this case. As for $U \cap M$, it is (for similar reasons--it is the union of $2g$ things each homotopic to $S^1$)) $2g\chi(S^1)$, but $\chi(S^1) = 0$.
+Then $\chi(U) = 2g$--$U$ has the homotopy type to $2g$ points, and for a union of finitely many points, the only nontrivial cohomology is $H^0$, which has dimension $2g$ in this case. As for $U \cap M$, it is (for similar reasons--it is the union of $2g$ things each homotopic to $S^1$)) $2g\chi(S^1)$, but $\chi(S^1) = 0$.
 
 Thus $\chi(S^2) = \chi(U) + \chi(M) - \chi(U \cap M)$, so $\chi(M) = \chi(S^2) - \chi(U) + \chi(U \cap M) = 2 - 2g + 0 = 2 - 2g$. 
 
@@ -144,6 +147,12 @@ We have $\chi(\Sigma_g) = \chi(M) + \chi(H) - \chi(M \cap H) = 2 - 2g$. This the
 The Euler characteristic of a manifold $M$ is defined to be $\chi(M) = \sum (-1)^p \dim(H^p(M))$. For example, for the $n$-sphere, it is $2$ if $n$ is even and $0$ if $n$ is odd. 
 
 There exists a recurrence for the Euler characteristic, which comes from the Mayer-Vietoris sequence. If $M = U \cup V$ for open $U, V$ then $\chi(M) = \chi(U) + \chi(V) - \chi(U \cap V)$. 
+
+We first need a general result about exact sequences: if $0 \to V_1 \to \dots \to V_n \to 0$ is an exact sequence of vector spaces, then $\sum_i (-1)^i \dim(V_i) = 0$. (Put proof from homework here.)
+
+Now take the long exact sequence induced by the Mayer-Vietoris sequence, $\dots \to H^p(M) \to H^p(U) \oplus H^p(V) \to H^p(U \cap V) \to H^{p+1}(M) \to \dots$ If we take the alternating sum of the dimensions and use $\dim(V \oplus W) = \dim(V) + \dim(W)$ we get $\dim(H^0(M)) - (\dim(H^0(U)) + \dim(H^0(V))) + \dim(H^0(U \cap V)) - \dim(H^1(m)) + (\dim(H^1(U)) + \dim(H^1(V)) - \dim(H^1(U \cap V)) + \dots$ 
+Grouping terms we get (note: there was an unimportant reversal of all signs here) $(\dim(H^0(M) - \dim(H^1(M)) + \dots) - (\dim(H^0(U) - \dim(H^1(U)) + \dots) - (\dim(H^0(V)) - \dim(H^1(V)) + \dots) + (\dim(H^0(U \cap V)) - \dim(H^1(U \cap V)) + \dots$ in other words $\chi(M) - \chi(U) - \chi(V) + \chi(U \cap V)$. On the other hand, by the lemma above, our original alternating sum of dimensions was $0$. Thus $\chi(M) - \chi(U) - \chi(V) + \chi(U \cap V) = 0$ or $\chi(M) = \chi(U) + \chi(V) - \chi(U \cap V)$, as desired. 
+
 
 ...result: for compact, oriented manifold, $H^N(M) = \R$. 
 
@@ -159,3 +168,9 @@ For example, in the 1-dimensional case, $\ol{B} = [0, 1]$; given a function $f$,
 More generally, if $f$ has a no fixed point, then we can consider the ray going from $x$ to $f(x)$, which will intersect $\partial \ol{B}$ at some unique point $\phi(x)$. This ray is given by $x + tu$ where $u = (x - f(x))/||x - f(x)||$. (Again, this is well-defined because $x \neq f(x)$.)
 
 We then have $1 = |x + tu|^2 = t^2 + 2t x \cdot u + |x|^2$, so $t = x \cdot u + \sqrt{1 - |x|^2 + (x \cdot u)^2}$. This means that $t$ depends smoothly on $x$, so $\phi(x)$ is a smooth function of $x$. It is also the identity on $\partial \ol{B}$. But by the previous lemma, there is no smooth map from $\ol{B}$ to itself which is the identity on the boundary. 
+
+## Topological Invariance of Dimension
+Using only the inverse function theorem and some basic theorems about differentials, we were able to prove that [[Manifolds#Invariance of Dimension|diffeomorphic manifolds have the same dimension]]. We can now prove the stronger result that homeomorphic manifolds have the same dimension, using the fact that the de Rham cohomology of "punctured" $n$-dimensional Euclidean space is different for different $n$.
+
+If an $m$-dimensional manifold $M$ is homeomorphic to an $n$-dimensional manifold $N$, then about each point $p \in M$, there exists a neighborhood $U$ which is homeomorphic to $\R^m$ (using the charts on $M$) and homeomorphic to $\R^n$ (by composing the homeomorphism $M \to N$ with a chart on $N$). We can then compose the inverse of the homeomorphism $M \to \R^m$ and the homeomorphism $M \to \R^n$ to get a homeomorphism $f: \R^m \to \R^n$. This in turn gives us a homeomorphism from "punctured $m$-dimensional space", $\R^m \backslash \{0\}$, to "punctured $n$-dimensional space", $\R^n \backslash \{0\}$. By the topological invariance of de Rham cohomology, the two spaces have the same cohomology groups. But recall that $\R^m \backslash \{0\}$ has the homotopy type of $S^{m-1}$, so its cohomology groups are $H^0(S^{m-1}) = H^{m-1}(S^{m-1}) = \R$, $H^p(S^{m-1}) = 0$ otherwise; the same goes for $S^{n-1}$. The only way to ensure that the two spaces have the same de Rham cohomology is if $m=n$, so that $H^{m-1}(\R^m \backslash \{0\}) = H^{n-1}(\R^n \backslash \{0\})$. Thus if $M$ is homeomorphic to $N$, then $\dim(M) = \dim(N)$.
+

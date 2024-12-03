@@ -51,5 +51,7 @@ Note that $\wedge^n(V^*)$ has dimension $1$; all alternating $n$-forms are scala
 ## Interior Multiplication
 Interior multiplication or "contraction" is an operation that takes k-linear forms to (k-1)-linear forms. For any vector $v$ and $k$-form $\omega(v_1, \dots, v_k)$, we define the interior multiplication of $\omega$ by $v$, $i_v(\omega)$, by $i_v(\omega)(v_1, \dots, v_{k-1}) = \omega(v, v_1, \dots, v_{k-1})$. In the special case of a $0$-form we define $i_v(\omega) = 0$, and for a $1$-form we define $i_v(\omega) = \omega(v)$.
 
-We note (prove later) that interior multiplication is nilpotent ($i_v \circ i_v = 0$) and is a skew-derivation, $i_v(\omega \wedge \nu) = i_v(\omega) \wedge \nu + (-1)^k \omega \wedge i_v(\nu)$, where $\omega$ is a k-form. 
+When $\omega$ is alternating, we note that interior multiplication is nilpotent ($i_v \circ i_v = 0$) and is a skew-derivation, $i_v(\omega \wedge \nu) = i_v(\omega) \wedge \nu + (-1)^k \omega \wedge i_v(\nu)$, where $\omega$ is a k-form. 
 
+The first fact follows from the fact that, if $\omega$ is alternating and two of its arguments are equal, the result is $0$ (regardless of what the other arguments are). 
+# General Tensors
