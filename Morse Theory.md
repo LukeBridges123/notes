@@ -35,3 +35,29 @@ We then have the "first deformation lemma": if $f^{-1}([a, b])$ is compact and c
 To turn this into a homotopy equivalence, define $r_t(x) = x$ if $x \in M^a$, and $\phi_{t(a - f(x))}(x)$ if $x \in M^b \backslash M^a$. This is a one-parameter family of diffeomorphisms $M^b \to M^a$. We have $r_0 = \operatorname{id}, r_t|_{M^a} = \operatorname{id}|_{M^a}$ for all $t$, and $r_1$ is a diffeomorphism $M^b \to M^a$. Letting $i$ be the inclusion $M^a \to M^b$ we have $r_1 \circ i = \operatorname{id}|_{M^a}$ and that $i \circ r_1|_{M^b}$ is homotopic to $i \circ r_0|_{M^a}$; but the latter is $\operatorname{id}$. Thus $i$ is a homotopy equivalence with homotopy inverse $r_1$. This implies, for instance, that $M^a$ and $M^b$ have the same de Rham cohomology. 
 
 When you follow the gradient flow downward, the topology doesn't change as long as you don't hit a critical point; now we consider what happens when you do hit a critical point.
+
+
+## Morse Functions
+A "Morse function" is a smooth function $M \to \R$ such that all critical points are nondegenerate, and each level set $f^{-1}(a)$ has at most one critical point. Assuming $M$ is compact, this implies that the set of critical points and the set of critical values are both finite. This is because each critical point $p_\alpha$ has a Morse neighborhood (i.e. neighborhood in which Morse coordinates exist) in which it is the only critical point. Then the sets $U_\alpha, M \backslash \{p_\alpha\}$ form an open cover; it has a finite subcover which includes all the critical points. Since there is one open set in the subcover per critical point, there are finitely many critical points. 
+
+On any manifold $M$, there exists a Morse function; indeed, any function can be "perturbed" into a Morse function, i.e. for any function $g$ and $\epsilon > 0$ there exists a Morse function $f_\epsilon$ with $\sup |g - f_\epsilon| < \epsilon$. 
+## Second Deformation Lemma
+Now we revisit gradient flows and look at what happens when we pass by a critical point . Let $p$ be a critical point with $c = f(p)$; choose a Morse coordinate neighborhood $U$ centered at $p$ so that $f(x, y) = c + |x|^2 - |y|^2$ (using $x, y$ as shorthands for the $x^i, y^j$ used in the definition of Morse coordinates). Choose an $\epsilon$ such that $f^{-1}([c - \epsilon, c + \epsilon])$ contains no critical points besides $p$, then choose a ball $B(p, 2r) \subseteq U$ so that $B$ includes some points with $f(q) < c - \epsilon$ and some with $f(q) > c + \epsilon$. 
+
+... include diagrams? ... see also Milnor's book, pg 16-17
+
+As before, we want to "push $M^{c + \epsilon}$ down", but now we want to keep it fixed in a neighborhood of $p$. First we prove the following lemma: $M^{c + \epsilon}$ is diffeomorphic (and homotopy-equivalent) to $M^{c - \epsilon} U H$, where $H$ is a neighborhood of $B^-$, which we define to be the set of all points $(0, y) \in B$ (i.e. where only the "negative" coordinates are nonzero).
+
+Choose a bump function $\beta: \R \to \R$ such that $\beta(0) > \epsilon, \beta(t) >0$ for all $t > 2\epsilon$, and $-1 < \beta' \leq 0$; modify $f$ to $F(x, y) = f(x, y) - \beta(2|x| - |y|)$ for $x, y \in B$, and $F = f$ outside of $B$. Then $F^{-1}((-\infty, c + \epsilon]) = M^{c + \epsilon}$, and the critical points of $F$ are precisely the critical points of $f$ (proof in Milnor). Then we can apply the first deformation lemma to get that $M^{c + \epsilon}$ is diffeomorphic to $F^{-1}((-\infty, c - \epsilon])$; we claim that this is just $M^{c - \epsilon} \cup H$, $H$ defined as above. 
+
+...again see diagrams...
+
+Now we've deformed $M^{c+\epsilon}$ into $M^{c-\epsilon}$ plus the "handle" $H$. We can then do a deformation retraction of $B^-$ onto $H$....
+
+This gives us the "second deformation lemma": if $f^{-1}([a, b])$ contains only one critical point with index $\lambda$, then $M^b$ is homotopy equivalent to $M^a$ with a $\lambda$-cell attached. 
+
+...insert example with the height function on the torus...
+
+This lets us show how to build $M$ as a CW complex (i.e. space built by gluing together k-cells). 
+
+Thus every manifold is homotopy equivalent to a CW complex; we've proved it for compact manifolds, but in fact it holds in general. 

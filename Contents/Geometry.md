@@ -7,6 +7,8 @@
 [[De Rham Cohomology]] The algebra of cohomology classes on a manifold. Axioms of de Rham cohomology. Homotopy invariance. Homological algebra: cochain complexes, exact sequences, and the zig-zag lemma. The Mayer-Vietoris sequence. Betti numbers and Euler characteristic in terms of de Rham cohomology. Examples: generalized Poincare lemma, n-sphere, surfaces. Applications: Brouwer fixed point theorem and topological invariance of dimension. 
 [[Symplectic Manifolds]] Normal forms of symmetric and skew-symmetric bilinear forms. Symplectic forms on manifolds. Hamilton's equations and abstract Hamiltonian systems. Poisson brackets; Hamiltonian vector fields. Results from Hamiltonian mechanics, including the Gibbs-Liouville theorem, Poincare recurrence theorem, and Noether's theorem.
 [[Riemannian Metrics]] Definition of a Riemannian metric. Metric topology induced by a Riemannian metric. Length and energy functionals; geodesics. 
+[[Morse Theory]] The Hessian matrix; Morse coordinates at a critical point. Gradient flows and the first deformation lemma. Gradient flows near critical points; the second deformation lemma. Manifolds and CW complexes. 
+
 
 [[Projective Spaces]]
 [[Quadratic Curves and Quadric Surfaces]] Classification of quadratic curves and quadric surfaces. Parameterizations of quadratic curves. 
