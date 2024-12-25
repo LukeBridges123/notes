@@ -9,6 +9,10 @@
 [[Riemannian Metrics]] Definition of a Riemannian metric. Metric topology induced by a Riemannian metric. Length and energy functionals; geodesics. 
 [[Morse Theory]] The Hessian matrix; Morse coordinates at a critical point. Gradient flows and the first deformation lemma. Gradient flows near critical points; the second deformation lemma. Manifolds and CW complexes. 
 
-
+[[Affine Algebraic Curves]]
+[[Intersections and Singular Points of Curves]]
 [[Projective Spaces]]
 [[Quadratic Curves and Quadric Surfaces]] Classification of quadratic curves and quadric surfaces. Parameterizations of quadratic curves. 
+[[Cubic Curves and Elliptic Curves]]
+
+
