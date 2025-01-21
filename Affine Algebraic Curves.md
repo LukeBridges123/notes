@@ -1,5 +1,5 @@
 # Definitions
-For a given field $K$, "affine n-dimensional space" $\A^n$ is the set of all $n$-tuples $(x_1, \dots, x_n)$ with coordinates in $K$; we also denote it $A_K^n$ or $K^n$. 
+For a given field $K$, "affine n-dimensional space" $\A^n$ is the set of all $n$-tuples $(x_1, \dots, x_n)$ with coordinates in $K$; we also denote it $\A_K^n$ or $K^n$. 
 
 In 2-dimensional space, a polynomial $p \in K[x, y]$ is called an algebraic curve. Similarly a single polynomial in $K[x, y, z]$ is called an algebraic surface, and more generally a polynomial in n variables gives an (n-1)-dimensional "hypersurface". (More precisely, we typically define a curve to be an equivalence class of polynomials, where if one polynomial is a scalar multiple of another they are equivalent.)
 

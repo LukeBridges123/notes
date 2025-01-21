@@ -17,9 +17,9 @@ An inner product is a positive-definite symmetric bilinear form; this is equival
 # Symplectic Forms and Symplectic Manifolds
 A symplectic vector space is a vector space $V$ with a nondegenerate skew-symmetric bilinear form; that is, a nondegenerate element of $\wedge^2 V^*$.
 
-We can then extend the above ideas to manifolds. If we have a 2-form on a manifold $M$, i.e. a section $\omega$ of $\wedge^2 (T^*M)$ which is nondegenerate at each point, then we call $\omega$ a symplectic form, and say that $M$ is a symplectic manifold. Similarly we can take a section $g$ of the space of all symmetric 2-forms on $T^*M$; we then  call $g$ a "Riemannian metric" and $M$ a Riemannian manifold. Each of these gives us an isomorphism $g^\#, \omega^\#$ between $T_pM$ and $T^*_pM$ at each point. 
+We can then extend the above ideas to manifolds. If we have a 2-[[Differential Forms|form]] on a [[Manifolds|manifold]] $M$, i.e. a section $\omega$ of $\wedge^2 (T^*M)$ which is nondegenerate at each point, then we call $\omega$ a symplectic form, and say that $M$ is a symplectic manifold. Similarly we can take a section $g$ of the space of all symmetric 2-forms on $T^*M$; we then  call $g$ a "Riemannian metric" and $M$ a Riemannian manifold. Each of these gives us an isomorphism $g^\#, \omega^\#$ between $T_pM$ and $T^*_pM$ at each point. 
 
-More precisely, we define a symplectic form to be a 2-form $\omega$ which is closed (i.e. $d\omega = 0$) and nondegenerate (which turns out to be equivalent to $\omega^n$, the wedge product of $\omega$ with itself $n$ times, being nonzero). If $\omega$ is also exact, i.e. the exterior derivative of a 1-form, we call it an exact symplectic form. 
+More precisely, we define a symplectic form to be a 2-form $\omega$ which is closed (i.e. $d\omega = 0$) and nondegenerate (which turns out to be equivalent to $\omega^n$, the [[Differential Forms#Wedge Product|wedge product]] of $\omega$ with itself $n$ times, being nonzero). If $\omega$ is also exact, i.e. the exterior derivative of a 1-form, we call it an exact symplectic form. 
 
 For example, on $\R^{2n}$, say with coordinates $x^1, \dots, x^n, y^1, \dots, y^n$, we have a "standard symplectic form" given by $dx^1 \wedge dy^1 + \dots + dx^n \wedge dy^n$. This is an exact form, since it is the derivative of $\sum_i x^i dy^i$. 
 

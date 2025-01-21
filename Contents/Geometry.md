@@ -11,6 +11,8 @@
 
 [[Affine Algebraic Curves]]
 [[Intersections and Singular Points of Curves]]
+
+
 [[Projective Spaces]]
 [[Quadratic Curves and Quadric Surfaces]] Classification of quadratic curves and quadric surfaces. Parameterizations of quadratic curves. 
 [[Cubic Curves and Elliptic Curves]]
